@@ -1,2 +1,2 @@
 # rastreabilityMatrix
-A simple web system to do the test matrix of rastreability 
+A simple web system to do the test matrix of rastreability.
