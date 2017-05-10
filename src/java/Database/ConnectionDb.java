@@ -5,6 +5,7 @@ package Database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ConnectionDb {
@@ -52,5 +53,16 @@ public class ConnectionDb {
       }catch(SQLException se){
           se.printStackTrace();
       }//
+   }
+   
+   public static void closeConnection(Connection conn,PreparedStatement stmt, ResultSet rs){
+       closeConnection(conn, stmt);
+        try{
+         if(rs!=null)
+            rs.close();
+      }catch(SQLException se){
+         se.printStackTrace();
+      }
+       
    }
 }//end ConnectionDb

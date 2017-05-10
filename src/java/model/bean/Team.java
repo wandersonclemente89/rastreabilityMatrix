@@ -11,7 +11,7 @@ package model.bean;
  */
 public class Team {
     private int id;
-    private String team;
+    private String name;
     private String project;
 
     public int getId() {
@@ -22,16 +22,16 @@ public class Team {
         return project;
     }
 
-    public String getTeam() {
-        return team;
+    public String getName() {
+        return name;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setTeam(String team) {
-        this.team = team;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setProject(String project) {
