@@ -41,7 +41,7 @@ public class BusinessRequirementsHasEmployeesDAO {
         try {         
             stmt = conn.prepareStatement("DELETE FROM BUSINESS_REQUIREMENTS_has_EMPLOYEES WHERE BUSINESS_REQUIREMENTS_ID=? and EMPLOYEES_SIGNUM=?");
             stmt.setInt(1, businessRequirementsHasEmployees.getBRId());
-            stmt.setInt(1, businessRequirementsHasEmployees.getEmployeesSignum());
+            stmt.setInt(2, businessRequirementsHasEmployees.getEmployeesSignum());
             stmt.executeUpdate();
         } catch (SQLException ex) {
            ex.printStackTrace();
