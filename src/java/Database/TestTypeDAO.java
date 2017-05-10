@@ -11,20 +11,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.bean.BUC;
+import model.bean.TestType;
 
 /**
  *
- * @author wanderson.barros
+ * @author felipe.padua
  */
-public class BUCDAO {
-     public void insert(BUC buc){
+public class TestTypeDAO {
+    public void insert(TestType testType){
         Connection conn = ConnectionDb.getConnection();
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO BUC (name) values (?)");
-            stmt.setString(1, buc.getName());
+            stmt = conn.prepareStatement("INSERT INTO TEST_TYPE (name) values (?)");
+            stmt.setString(1, testType.getName());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -33,13 +33,13 @@ public class BUCDAO {
         }
     }
     
-    public void delete(BUC buc){
+    public void delete(TestType testType){
         Connection conn = ConnectionDb.getConnection();
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("DELETE FROM BUC WHERE ID=?");
-            stmt.setInt(1, buc.getId());
+            stmt = conn.prepareStatement("DELETE FROM TEST_TYPE WHERE ID=?");
+            stmt.setInt(1, testType.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -48,14 +48,14 @@ public class BUCDAO {
         }
     }
     
-    public void update(BUC buc){
+    public void update(TestType testType){
         Connection conn = ConnectionDb.getConnection();
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("UPDATE BUC SET name=? WHERE id=?");
-            stmt.setString(1, buc.getName());
-            stmt.setInt(2, buc.getId());           
+            stmt = conn.prepareStatement("UPDATE TEST_TYPE SET name=? WHERE id=?");
+            stmt.setString(1, testType.getName());
+            stmt.setInt(2, testType.getId());           
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -64,22 +64,22 @@ public class BUCDAO {
         }
     }
     
-    public List<BUC> read(){
+    public List<TestType> read(){
         Connection conn = ConnectionDb.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<BUC> bucList = new ArrayList<>();
+        List<TestType> testTypeList = new ArrayList<>();
         
         try {
-            stmt = conn.prepareStatement("SELECT * FROM buc");
+            stmt = conn.prepareStatement("SELECT * FROM TEST_TYPE");
             rs = stmt.executeQuery();
             
             while(rs.next()){
-                BUC buc = new BUC();
-                buc.setId(rs.getInt("ID"));
-                buc.setName(rs.getString("NAME"));
+                TestType testType = new TestType();
+                testType.setId(rs.getInt("ID"));
+                testType.setName(rs.getString("NAME"));
       
-                bucList.add(buc);
+                testTypeList.add(testType);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -87,6 +87,7 @@ public class BUCDAO {
             ConnectionDb.closeConnection(conn, stmt,rs);
         }
         
-        return bucList;
+        return testTypeList;
     }
+    
 }

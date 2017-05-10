@@ -11,20 +11,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.bean.BUC;
+import model.bean.Employees;
 
 /**
  *
- * @author wanderson.barros
+ * @author felipe.padua
  */
-public class BUCDAO {
-     public void insert(BUC buc){
+public class EmployeesDAO {
+    public void insert(Employees employee){
         Connection conn = ConnectionDb.getConnection();
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO BUC (name) values (?)");
-            stmt.setString(1, buc.getName());
+            stmt = conn.prepareStatement("INSERT INTO EMPLOYEES (signum,name,role,teamId) values (?,?,?,?)");
+            stmt.setInt(1, employee.getSignum());
+            stmt.setString(2, employee.getName());
+            stmt.setString(3, employee.getRole());
+            stmt.setInt(4, employee.getTeamId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -33,13 +36,13 @@ public class BUCDAO {
         }
     }
     
-    public void delete(BUC buc){
+    public void delete(Employees employee){
         Connection conn = ConnectionDb.getConnection();
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("DELETE FROM BUC WHERE ID=?");
-            stmt.setInt(1, buc.getId());
+            stmt = conn.prepareStatement("DELETE FROM EMPLOYEES WHERE SIGNUM=?");
+            stmt.setInt(1, employee.getSignum());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -47,15 +50,17 @@ public class BUCDAO {
             ConnectionDb.closeConnection(conn,stmt);
         }
     }
-    
-    public void update(BUC buc){
+        
+    public void update(Employees employee){
         Connection conn = ConnectionDb.getConnection();
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("UPDATE BUC SET name=? WHERE id=?");
-            stmt.setString(1, buc.getName());
-            stmt.setInt(2, buc.getId());           
+            stmt = conn.prepareStatement("UPDATE EMPLOYEES SET name=?, role=?, team_id=? WHERE signum=?");
+            stmt.setString(1, employee.getName());
+            stmt.setString(2, employee.getRole());
+            stmt.setInt(3, employee.getTeamId()); 
+            stmt.setInt(4, employee.getSignum());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -63,23 +68,25 @@ public class BUCDAO {
             ConnectionDb.closeConnection(conn,stmt);
         }
     }
-    
-    public List<BUC> read(){
+
+    public List<Employees> read(){
         Connection conn = ConnectionDb.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<BUC> bucList = new ArrayList<>();
+        List<Employees> employesList = new ArrayList<>();
         
         try {
-            stmt = conn.prepareStatement("SELECT * FROM buc");
+            stmt = conn.prepareStatement("SELECT * FROM EMPLOYEES");
             rs = stmt.executeQuery();
             
             while(rs.next()){
-                BUC buc = new BUC();
-                buc.setId(rs.getInt("ID"));
-                buc.setName(rs.getString("NAME"));
-      
-                bucList.add(buc);
+                Employees employee = new Employees();
+                employee.setSignum(rs.getInt("SIGNUM"));
+                employee.setName(rs.getString("NAME"));
+                employee.setRole(rs.getString("ROLE"));
+                employee.setTeamId(rs.getInt("TEAM_ID"));
+                
+                employesList.add(employee);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -87,6 +94,7 @@ public class BUCDAO {
             ConnectionDb.closeConnection(conn, stmt,rs);
         }
         
-        return bucList;
+        return employesList;
     }
+        
 }

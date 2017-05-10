@@ -11,20 +11,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.bean.BUC;
+import model.bean.Sprint;
 
 /**
  *
- * @author wanderson.barros
+ * @author felipe.padua
  */
-public class BUCDAO {
-     public void insert(BUC buc){
+public class SprintDAO {
+    public void insert(Sprint sprint){
         Connection conn = ConnectionDb.getConnection();
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO BUC (name) values (?)");
-            stmt.setString(1, buc.getName());
+            stmt = conn.prepareStatement("INSERT INTO SPRINT (name) values (?)");
+            stmt.setInt(1, sprint.getName());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -33,13 +33,13 @@ public class BUCDAO {
         }
     }
     
-    public void delete(BUC buc){
+    public void delete(Sprint sprint){
         Connection conn = ConnectionDb.getConnection();
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("DELETE FROM BUC WHERE ID=?");
-            stmt.setInt(1, buc.getId());
+            stmt = conn.prepareStatement("DELETE FROM SPRINT WHERE ID=?");
+            stmt.setInt(1, sprint.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -47,15 +47,15 @@ public class BUCDAO {
             ConnectionDb.closeConnection(conn,stmt);
         }
     }
-    
-    public void update(BUC buc){
+        
+    public void update(Sprint sprint){
         Connection conn = ConnectionDb.getConnection();
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("UPDATE BUC SET name=? WHERE id=?");
-            stmt.setString(1, buc.getName());
-            stmt.setInt(2, buc.getId());           
+            stmt = conn.prepareStatement("UPDATE SPRINT SET name=? WHERE id=?");
+            stmt.setInt(1, sprint.getName());
+            stmt.setInt(2, sprint.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -63,23 +63,22 @@ public class BUCDAO {
             ConnectionDb.closeConnection(conn,stmt);
         }
     }
-    
-    public List<BUC> read(){
+
+    public List<Sprint> read(){
         Connection conn = ConnectionDb.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<BUC> bucList = new ArrayList<>();
+        List<Sprint> sprintList = new ArrayList<>();
         
         try {
-            stmt = conn.prepareStatement("SELECT * FROM buc");
+            stmt = conn.prepareStatement("SELECT * FROM SPRINT");
             rs = stmt.executeQuery();
             
             while(rs.next()){
-                BUC buc = new BUC();
-                buc.setId(rs.getInt("ID"));
-                buc.setName(rs.getString("NAME"));
-      
-                bucList.add(buc);
+                Sprint sprint = new Sprint();
+                sprint.setId(rs.getInt("ID"));
+                sprint.setName(rs.getInt("NAME"));                
+                sprintList.add(sprint);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -87,6 +86,6 @@ public class BUCDAO {
             ConnectionDb.closeConnection(conn, stmt,rs);
         }
         
-        return bucList;
+        return sprintList;
     }
 }

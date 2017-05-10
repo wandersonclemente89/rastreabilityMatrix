@@ -11,20 +11,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.bean.BUC;
+import model.bean.Status;
 
 /**
  *
- * @author wanderson.barros
+ * @author felipe.padua
  */
-public class BUCDAO {
-     public void insert(BUC buc){
+public class StatusDAO {
+    public void insert(Status status){
         Connection conn = ConnectionDb.getConnection();
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO BUC (name) values (?)");
-            stmt.setString(1, buc.getName());
+            stmt = conn.prepareStatement("INSERT INTO STATUS (name) values (?)");
+            stmt.setString(1, status.getName());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -33,13 +33,13 @@ public class BUCDAO {
         }
     }
     
-    public void delete(BUC buc){
+    public void delete(Status status){
         Connection conn = ConnectionDb.getConnection();
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("DELETE FROM BUC WHERE ID=?");
-            stmt.setInt(1, buc.getId());
+            stmt = conn.prepareStatement("DELETE FROM STATUS WHERE ID=?");
+            stmt.setInt(1, status.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -48,14 +48,14 @@ public class BUCDAO {
         }
     }
     
-    public void update(BUC buc){
+    public void update(Status status){
         Connection conn = ConnectionDb.getConnection();
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("UPDATE BUC SET name=? WHERE id=?");
-            stmt.setString(1, buc.getName());
-            stmt.setInt(2, buc.getId());           
+            stmt = conn.prepareStatement("UPDATE STATUS SET name=? WHERE id=?");
+            stmt.setString(1, status.getName());
+            stmt.setInt(2, status.getId());           
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -64,22 +64,22 @@ public class BUCDAO {
         }
     }
     
-    public List<BUC> read(){
+    public List<Status> read(){
         Connection conn = ConnectionDb.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<BUC> bucList = new ArrayList<>();
+        List<Status> statusList = new ArrayList<>();
         
         try {
-            stmt = conn.prepareStatement("SELECT * FROM buc");
+            stmt = conn.prepareStatement("SELECT * FROM STATUS");
             rs = stmt.executeQuery();
             
             while(rs.next()){
-                BUC buc = new BUC();
-                buc.setId(rs.getInt("ID"));
-                buc.setName(rs.getString("NAME"));
+                Status status = new Status();
+                status.setId(rs.getInt("ID"));
+                status.setName(rs.getString("NAME"));
       
-                bucList.add(buc);
+                statusList.add(status);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -87,6 +87,7 @@ public class BUCDAO {
             ConnectionDb.closeConnection(conn, stmt,rs);
         }
         
-        return bucList;
+        return statusList;
     }
+    
 }
