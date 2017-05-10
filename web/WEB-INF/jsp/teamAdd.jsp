@@ -1,13 +1,21 @@
-
+<%-- 
+    Document   : teamAdd
+    Created on : 10/05/2017, 15:46:11
+    Author     : flavio.henrique
+--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Rastreability Matrix</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="<c:url value="/bootstrap/css/bootstrap.css"/>" />
         <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>  
-        <link rel="stylesheet" href="css/style.css"/>
-        <script src="javascript/jquery-3.2.1.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="<c:url value="/css/style.css"/>"/>
+        <script src="<c:url value="/javascript/jquery-3.2.1.min.js"/>" type="text/javascript"></script>
+        <script type="text/javascript" src="<c:url value="/bootstrap/js/bootstrap.min.js"/>"></script>
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -20,7 +28,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand navbar-brand-custom" href="#"><img class="logo-img" src="images/ericssonLogo.png" /></a>
+                    <a class="navbar-brand navbar-brand-custom" href="<c:url value="/index.html"/>"><img class="logo-img" src="<c:url value="/images/ericssonLogo.png"/>" /></a>
 
                 </div>
 
@@ -30,52 +38,32 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Team <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="team/add">Add</a></li>
+                                <li><a href="#">Add</a></li>
                             </ul>
                         </li>
                         <li class="active"><a class="active" href="#">Sprints <span class="sr-only">(current)</span></a></li>
                         <li><a href="#">BUCs</a></li>
-                        
+
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
         <div class="content">
             <div class="content-limit">
-                <div class="row">
-                    <div class="col-md-3">
-                        <a href="#">
-                            <div class="jumbotron jumbotron-custom">
-                                <h2>CodeFreeza</h2>
-                                <p><span class="glyphicon glyphicon-plus-sign"></span></p>
-                            </div>
-                        </a>
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input class="form-control" name="name" placeholder="Enter name">
                     </div>
-                    <div class="col-md-3">
-                        <a href="#">
-                            <div class="jumbotron jumbotron-custom">
-                                <h2>Black Lotus</h2>
-                                <p><span class="glyphicon glyphicon-plus-sign"></span></p>
-                            </div>
-                        </a>
+                    <div class="form-group">
+                        <label for="project">Project</label>
+                        <select class="form-control" name="project">
+                            <option>RM OM</option>
+                            <option>CBIO</option>
+                        </select>
                     </div>
-                    <div class="col-md-3">
-                        <a href="#">
-                            <div class="jumbotron jumbotron-custom">
-                                <h2>CodePlay</h2>
-                                <p><span class="glyphicon glyphicon-plus-sign"></span></p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="#">
-                            <div class="jumbotron jumbotron-custom">
-                                <h2>Hi5</h2>
-                                <p><span class="glyphicon glyphicon-plus-sign"></span></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
     </body>

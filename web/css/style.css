@@ -1,0 +1,21 @@
+.content-limit{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content{
+    margin-top: 100px;
+}
+
+.jumbotron-custom{
+    padding: 40px;
+    text-align: center;
+}
+
+.logo-img{
+    width: 50px;
+}
+
+.navbar-brand-custom{
+    padding: 0 10px;
+}
