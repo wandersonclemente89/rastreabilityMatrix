@@ -25,7 +25,7 @@ public class BusinessRequirementsHasEmployeesDAO {
         try {         
             stmt = conn.prepareStatement("INSERT INTO BUSINESS_REQUIREMENTS_has_EMPLOYEES (BUSINESS_REQUIREMENTS_ID,EMPLOYEES_SIGNUM) values (?,?)");
             stmt.setInt(1, businessRequirementsHasEmployees.getBRId());
-            stmt.setInt(2, businessRequirementsHasEmployees.getEmployeesSignum());
+            stmt.setString(2, businessRequirementsHasEmployees.getEmployeesSignum());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -41,7 +41,7 @@ public class BusinessRequirementsHasEmployeesDAO {
         try {         
             stmt = conn.prepareStatement("DELETE FROM BUSINESS_REQUIREMENTS_has_EMPLOYEES WHERE BUSINESS_REQUIREMENTS_ID=? and EMPLOYEES_SIGNUM=?");
             stmt.setInt(1, businessRequirementsHasEmployees.getBRId());
-            stmt.setInt(2, businessRequirementsHasEmployees.getEmployeesSignum());
+            stmt.setString(2, businessRequirementsHasEmployees.getEmployeesSignum());
             stmt.executeUpdate();
         } catch (SQLException ex) {
            ex.printStackTrace();
@@ -57,9 +57,9 @@ public class BusinessRequirementsHasEmployeesDAO {
         try {         
             stmt = conn.prepareStatement("UPDATE BUSINESS_REQUIREMENTS_has_EMPLOYEES SET BUSINESS_REQUIREMENTS_ID=?, EMPLOYEES_SIGNUM=? WHERE BUSINESS_REQUIREMENTS_ID=? and EMPLOYEES_SIGNUM=?");
             stmt.setInt(1, businessRequirementsHasEmployees.getBRId());
-            stmt.setInt(2, businessRequirementsHasEmployees.getEmployeesSignum());
+            stmt.setString(2, businessRequirementsHasEmployees.getEmployeesSignum());
             stmt.setInt(3, businessRequirementsHasEmployees.getBRId());
-            stmt.setInt(4, businessRequirementsHasEmployees.getEmployeesSignum());           
+            stmt.setString(4, businessRequirementsHasEmployees.getEmployeesSignum());           
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -81,7 +81,7 @@ public class BusinessRequirementsHasEmployeesDAO {
             while(rs.next()){
                 BusinessRequirementsHasEmployees businessRequirementsHasEmployees = new BusinessRequirementsHasEmployees();
                 businessRequirementsHasEmployees.setBRId(rs.getInt("BUSINESS_REQUIREMENTS_ID"));
-                businessRequirementsHasEmployees.setEmployeesSignum(rs.getInt("EMPLOYEES_SIGNUM"));
+                businessRequirementsHasEmployees.setEmployeesSignum(rs.getString("EMPLOYEES_SIGNUM"));
       
                 BusinessRequirementsHasEmployeesList.add(businessRequirementsHasEmployees);
             }

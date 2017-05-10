@@ -11,13 +11,13 @@ package model.bean;
  */
 public class BusinessRequirementsHasEmployees {
     private int BRId;
-    private int employeesSignum;
+    private String employeesSignum;
 
     public int getBRId() {
         return BRId;
     }
 
-    public int getEmployeesSignum() {
+    public String getEmployeesSignum() {
         return employeesSignum;
     }
 
@@ -25,7 +25,7 @@ public class BusinessRequirementsHasEmployees {
         this.BRId = BRId;
     }
 
-    public void setEmployeesSignum(int employeesSignum) {
+    public void setEmployeesSignum(String employeesSignum) {
         this.employeesSignum = employeesSignum;
     }
     
