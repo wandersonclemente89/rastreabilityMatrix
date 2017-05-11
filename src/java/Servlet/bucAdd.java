@@ -47,7 +47,7 @@ public class bucAdd extends HttpServlet {
         bucDAO.insert(buc);
         
 
-        for (int i=0;i <teamList.length ;i++){
+        for (int i=0;teamList!=null && i <teamList.length;i++){
             TeamHasBUC teamHasBUC = new TeamHasBUC();
             TeamHasBUCDAO teamHasBUCDAO = new TeamHasBUCDAO();
             

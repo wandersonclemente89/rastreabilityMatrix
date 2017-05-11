@@ -49,10 +49,11 @@ public class MemberAdd extends HttpServlet {
         employees.setSignum(signum);
         employees.setTeamId(Integer.parseInt(teamId));
         
+        
         EmployeesDAO employeesDAO =  new EmployeesDAO();
         employeesDAO.insert(employees);
 
-        response.sendRedirect("/member/list");  
+        response.sendRedirect("list");  
     }
 
 }

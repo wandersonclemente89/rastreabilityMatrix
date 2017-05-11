@@ -32,6 +32,7 @@ public class BUCDelete extends HttpServlet {
         buc.setId(id);
         
         BUCDAO bucDAO = new BUCDAO();
+        
         bucDAO.delete(buc);
         
         response.sendRedirect("list");  
