@@ -39,79 +39,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>
-                                <button type="button" class="btn btn-default" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon-pencil"/>
-                                </button>
-                                <button type="button" class="btn btn-danger" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon glyphicon-trash"/>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Garrett Winters</td>
-                            <td>Accountant</td>
-                            <td>
-                                 <button type="button" class="btn btn-default" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon-pencil"/>
-                                </button>
-                                <button type="button" class="btn btn-danger" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon glyphicon-trash"/>
-                                </button>
-                            </td>
-                        </tr>
+                        <c:forEach items="${bucs}" var="buc">
+                            <tr>
+                                <td>${buc.id}</td>
+                                <td>${buc.name}</td>
+                                <td>
 
-                        <tr>
-                            <td>Doris Wilder</td>
-                            <td>Sales Assistant</td>
-                            <td>
-                                 <button type="button" class="btn btn-default" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon-pencil"/>
-                                </button>
-                                <button type="button" class="btn btn-danger" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon glyphicon-trash"/>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Angelica Ramos</td>
-                            <td>Chief Executive Officer (CEO)</td>
-                            <td>
-                                 <button type="button" class="btn btn-default" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon-pencil"/>
-                                </button>
-                                <button type="button" class="btn btn-danger" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon glyphicon-trash"/>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Gavin Joyce</td>
-                            <td>Developer</td>
-                            <td>
-                                 <button type="button" class="btn btn-default" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon-pencil"/>
-                                </button>
-                                <button type="button" class="btn btn-danger" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon glyphicon-trash"/>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Donna Snider</td>
-                            <td>Customer Support</td>
-                            <td>
-                                 <button type="button" class="btn btn-default" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon-pencil"/>
-                                </button>
-                                <button type="button" class="btn btn-danger" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon glyphicon-trash"/>
-                                </button>
-                            </td>
-                        </tr>
+                                    <button type="button" class="btn btn-default" aria-label="Left Align">
+                                        <span class="glyphicon glyphicon-pencil"/>
+                                    </button>
+                                    <a href="<c:url value="/buc/delete?id=${buc.id}"/>">
+                                        <button type="button" class="btn btn-danger" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon glyphicon-trash"/>
+                                        </button>
+                                    </a>
+
+                                </td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>

@@ -1,12 +1,14 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Servlet;
 
 import Database.BUCDAO;
 import Database.TeamDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,31 +18,32 @@ import model.bean.Team;
 
 /**
  *
- * @author flavio.henrique
+ * @author wanderson.barros
  */
-public class BucList extends HttpServlet {
+public class BUCDelete extends HttpServlet {
 
-
-
+   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
         
+        BUC buc = new BUC();
+        buc.setId(id);
         
         BUCDAO bucDAO = new BUCDAO();
-        List<BUC> bucs = bucDAO.read();
+        bucDAO.delete(buc);
         
-        request.setAttribute("bucs", bucs);
+        response.sendRedirect("list");  
         
-        String jsp = "/WEB-INF/jsp/bucList.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(jsp);
-        dispatcher.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+      
     }
 
-
 }
+
+  
