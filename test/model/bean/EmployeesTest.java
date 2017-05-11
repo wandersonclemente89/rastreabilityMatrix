@@ -73,7 +73,7 @@ public class EmployeesTest {
         System.out.println("getSignum");
         Employees instance = new Employees();
         int expResult = 0;
-        int result = instance.getSignum();
+        String result = instance.getSignum();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -125,7 +125,7 @@ public class EmployeesTest {
     @Test
     public void testSetSignum() {
         System.out.println("setSignum");
-        int signum = 0;
+        String signum = null;
         Employees instance = new Employees();
         instance.setSignum(signum);
         // TODO review the generated test code and remove the default call to fail.

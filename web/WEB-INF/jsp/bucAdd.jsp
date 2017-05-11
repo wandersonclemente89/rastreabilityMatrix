@@ -24,7 +24,7 @@
             <div class="content-limit">
                 <h3 class="form-title">BUC Register</h3>
                 <hr>
-                <form>
+                <form method="post">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
                         <input class="form-control" name="name" placeholder="Enter name">

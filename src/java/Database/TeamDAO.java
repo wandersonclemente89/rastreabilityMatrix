@@ -23,7 +23,7 @@ public class TeamDAO {
         Connection conn = ConnectionDb.getConnection();
 
         PreparedStatement stmt = null;
-        try {         
+        try {    
             stmt = conn.prepareStatement("INSERT INTO TEAM (name,project) values (?,?)");
             stmt.setString(1, team.getName());
             stmt.setString(2, team.getProject());

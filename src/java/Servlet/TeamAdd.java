@@ -3,7 +3,6 @@ package Servlet;
 
 import Database.TeamDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,8 +22,7 @@ public class TeamAdd extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
+     
         
         String jsp = "/WEB-INF/jsp/teamAdd.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(jsp);
@@ -46,7 +44,7 @@ public class TeamAdd extends HttpServlet {
         TeamDAO teamDAO = new TeamDAO();
         teamDAO.insert(team);
 
-        response.sendRedirect("/");    
+        response.sendRedirect("/team/list");    
     }
 
 

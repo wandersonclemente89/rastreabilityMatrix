@@ -18,19 +18,19 @@
     </head>
     <body>
         <%@ include file="/templates/menu.jsp" %>
-        
+
         <div class="content">
             <div class="content-limit">
                 <h3 class="form-title">Member Register</h3>
                 <hr>
-                <form>
+                <form method="post">
                     <div class="form-group">
                         <label>Signum</label>
-                        <input class="form-control" name="Signum" placeholder="Enter Signum">
+                        <input class="form-control" name="signum" placeholder="Enter Signum">
                     </div>
                     <div class="form-group">
                         <label>Name</label>
-                        <input class="form-control" name="Name" placeholder="Enter Name">
+                        <input class="form-control" name="name" placeholder="Enter Name">
                     </div>
                     <div class="form-group">
                         <label>Role</label>
@@ -41,9 +41,10 @@
                     </div>
                     <div class="form-group">
                         <label>Team</label>
-                        <select class="form-control" name="Team">
-                            <option>CodeFreeza</option>
-                            <option>Hi5</option>
+                        <select class="form-control" name="team">
+                            <c:forEach items="${teams}" var="team">
+                                <option value="${team.id}">${team.name}</option>
+                            </c:forEach>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>

@@ -10,7 +10,7 @@ package model.bean;
  * @author wanderson.barros
  */
 public class Employees {
-    private int signum;
+    private String signum;
     private String name;
     private String role;
     private int teamId;
@@ -23,7 +23,7 @@ public class Employees {
         return role;
     }
 
-    public int getSignum() {
+    public String getSignum() {
         return signum;
     }
 
@@ -39,7 +39,7 @@ public class Employees {
         this.role = role;
     }
 
-    public void setSignum(int signum) {
+    public void setSignum(String signum) {
         this.signum = signum;
     }
 

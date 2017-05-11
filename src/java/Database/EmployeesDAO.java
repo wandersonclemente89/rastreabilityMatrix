@@ -23,8 +23,8 @@ public class EmployeesDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO EMPLOYEES (signum,name,role,teamId) values (?,?,?,?)");
-            stmt.setInt(1, employee.getSignum());
+            stmt = conn.prepareStatement("INSERT INTO EMPLOYEES (signum,name,role,team_Id) values (?,?,?,?)");
+            stmt.setString(1, employee.getSignum());
             stmt.setString(2, employee.getName());
             stmt.setString(3, employee.getRole());
             stmt.setInt(4, employee.getTeamId());
@@ -42,7 +42,7 @@ public class EmployeesDAO {
         PreparedStatement stmt = null;
         try {         
             stmt = conn.prepareStatement("DELETE FROM EMPLOYEES WHERE SIGNUM=?");
-            stmt.setInt(1, employee.getSignum());
+            stmt.setString(1, employee.getSignum());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -60,7 +60,7 @@ public class EmployeesDAO {
             stmt.setString(1, employee.getName());
             stmt.setString(2, employee.getRole());
             stmt.setInt(3, employee.getTeamId()); 
-            stmt.setInt(4, employee.getSignum());
+            stmt.setString(4, employee.getSignum());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -81,7 +81,7 @@ public class EmployeesDAO {
             
             while(rs.next()){
                 Employees employee = new Employees();
-                employee.setSignum(rs.getInt("SIGNUM"));
+                employee.setSignum(rs.getString("SIGNUM"));
                 employee.setName(rs.getString("NAME"));
                 employee.setRole(rs.getString("ROLE"));
                 employee.setTeamId(rs.getInt("TEAM_ID"));
