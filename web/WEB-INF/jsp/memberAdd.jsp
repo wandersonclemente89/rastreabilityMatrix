@@ -18,20 +18,32 @@
     </head>
     <body>
         <%@ include file="/templates/menu.jsp" %>
+        
         <div class="content">
             <div class="content-limit">
-                <h3 class="form-title">Team Register</h3>
+                <h3 class="form-title">Member Register</h3>
                 <hr>
-                <form method="post">
+                <form>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Name</label>
-                        <input class="form-control" name="name" placeholder="Enter name">
+                        <label>Signum</label>
+                        <input class="form-control" name="Signum" placeholder="Enter Signum">
                     </div>
                     <div class="form-group">
-                        <label for="project">Project</label>
-                        <select class="form-control" name="project">
-                            <option>RM OM</option>
-                            <option>CBIO</option>
+                        <label>Name</label>
+                        <input class="form-control" name="Name" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Role</label>
+                        <select class="form-control" name="role">
+                            <option>Developer</option>
+                            <option>QA</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Team</label>
+                        <select class="form-control" name="Team">
+                            <option>CodeFreeza</option>
+                            <option>Hi5</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
