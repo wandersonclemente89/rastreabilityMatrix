@@ -21,8 +21,14 @@
         <servlet-class>Servlet.BucList</servlet-class>
     </servlet>
     <servlet>
+
         <servlet-name>SprintList</servlet-name>
         <servlet-class>Servlet.SprintList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TeamDelete</servlet-name>
+        <servlet-class>Servlet.TeamDelete</servlet-class>
+
     </servlet>
     <servlet-mapping>
         <servlet-name>MemberAdd</servlet-name>
@@ -45,8 +51,13 @@
         <url-pattern>/buc/list</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
         <servlet-name>SprintList</servlet-name>
         <url-pattern>/sprint/list</url-pattern>
+=======
+        <servlet-name>TeamDelete</servlet-name>
+        <url-pattern>/team/delete</url-pattern>
+>>>>>>> Add BUC finished
     </servlet-mapping>
     <session-config>
         <session-timeout>

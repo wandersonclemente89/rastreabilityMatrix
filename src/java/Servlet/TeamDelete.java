@@ -4,8 +4,6 @@ package Servlet;
 import Database.TeamDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,25 +12,26 @@ import model.bean.Team;
 
 /**
  *
- * @author flavio.henrique
+ * @author wanderson.barros
  */
-public class teamList extends HttpServlet {
+public class TeamDelete extends HttpServlet {
+
 
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
         
         Team team = new Team();
+        team.setId(id);
+        
         TeamDAO teamDAO = new TeamDAO();
-        List<Team> teams = teamDAO.read();
+        teamDAO.delete(team);
         
-        request.setAttribute("teams", teams);
-        
-        String jsp = "/WEB-INF/jsp/teamList.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(jsp);
-        dispatcher.forward(request, response);
+        response.sendRedirect("list");    
     }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

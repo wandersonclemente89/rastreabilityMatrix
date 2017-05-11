@@ -22,12 +22,6 @@ public class TeamAdd extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-<<<<<<< Updated upstream
-     
-        
-=======
-         
->>>>>>> Stashed changes
         String jsp = "/WEB-INF/jsp/teamAdd.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(jsp);
         dispatcher.forward(request, response);
@@ -48,7 +42,7 @@ public class TeamAdd extends HttpServlet {
         TeamDAO teamDAO = new TeamDAO();
         teamDAO.insert(team);
 
-        response.sendRedirect("/team/list");    
+        response.sendRedirect("list");    
     }
 
 

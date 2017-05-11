@@ -47,6 +47,24 @@ public class BUCDAO {
             ConnectionDb.closeConnection(conn,stmt);
         }
     }
+    public int getIDbyName(String bucName){
+        Connection conn = ConnectionDb.getConnection();
+        ResultSet rs =null;
+        int bucId = -1;
+        PreparedStatement stmt = null;
+        try {         
+            stmt = conn.prepareStatement("SELECT * FROM BUC WHERE NAME=?");
+            stmt.setString(1, bucName);
+            rs = stmt.executeQuery();
+            while (rs.next())
+                bucId = rs.getInt("id");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn,stmt);
+        }
+        return bucId;
+    }
     
     public void update(BUC buc){
         Connection conn = ConnectionDb.getConnection();

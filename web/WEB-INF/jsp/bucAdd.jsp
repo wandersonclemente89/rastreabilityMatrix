@@ -32,10 +32,9 @@
                     <div class="form-group">
                         <label for="project">Teams</label>
                         <select name="teams" class="selectpicker form-control" multiple>
-                            <option>CodeFreeza</option>
-                            <option>Hi5</option>
-                            <option>BlackLotus</option>
-                            <option>CodePlay</option>
+                            <c:forEach items="${teams}" var="team">
+                                <option value="${team.id}">${team.name}</option>
+                            </c:forEach>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
