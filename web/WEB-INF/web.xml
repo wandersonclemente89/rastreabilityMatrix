@@ -20,6 +20,10 @@
         <servlet-name>BucList</servlet-name>
         <servlet-class>Servlet.BucList</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SprintList</servlet-name>
+        <servlet-class>Servlet.SprintList</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MemberAdd</servlet-name>
         <url-pattern>/member/add</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>BucList</servlet-name>
         <url-pattern>/buc/list</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SprintList</servlet-name>
+        <url-pattern>/sprint/list</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

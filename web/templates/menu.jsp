@@ -22,7 +22,13 @@
                         <li><a href="<c:url value="/team/list"/>">List</a></li>
                     </ul>
                 </li>
-                <li class="active"><a href="#">Sprints </a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sprints <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="<c:url value="/sprint/add"/>">Add</a></li>
+                        <li><a href="<c:url value="/sprint/list"/>">List</a></li>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">BUCs <span class="caret"></span></a>
                     <ul class="dropdown-menu">
