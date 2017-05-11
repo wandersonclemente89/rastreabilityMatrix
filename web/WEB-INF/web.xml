@@ -51,13 +51,12 @@
         <url-pattern>/buc/list</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
         <servlet-name>SprintList</servlet-name>
         <url-pattern>/sprint/list</url-pattern>
-=======
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>TeamDelete</servlet-name>
         <url-pattern>/team/delete</url-pattern>
->>>>>>> Add BUC finished
     </servlet-mapping>
     <session-config>
         <session-timeout>
