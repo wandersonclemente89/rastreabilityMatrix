@@ -8,6 +8,18 @@
         <servlet-name>bucAdd</servlet-name>
         <servlet-class>Servlet.bucAdd</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>teamList</servlet-name>
+        <servlet-class>Servlet.teamList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MemberList</servlet-name>
+        <servlet-class>Servlet.MemberList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BucList</servlet-name>
+        <servlet-class>Servlet.BucList</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MemberAdd</servlet-name>
         <url-pattern>/member/add</url-pattern>
@@ -15,6 +27,18 @@
     <servlet-mapping>
         <servlet-name>bucAdd</servlet-name>
         <url-pattern>/buc/add</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>teamList</servlet-name>
+        <url-pattern>/team/list</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MemberList</servlet-name>
+        <url-pattern>/member/list</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BucList</servlet-name>
+        <url-pattern>/buc/list</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

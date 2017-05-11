@@ -19,10 +19,24 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Team <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="<c:url value="/team/add"/>">Add</a></li>
+                        <li><a href="<c:url value="/team/list"/>">List</a></li>
                     </ul>
                 </li>
-                <li class="active"><a class="active" href="#">Sprints <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">BUCs</a></li>
+                <li class="active"><a href="#">Sprints </a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">BUCs <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="<c:url value="/buc/add"/>">Add</a></li>
+                        <li><a href="<c:url value="/buc/list"/>">List</a></li>
+                    </ul>
+                </li>
+                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Members <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="<c:url value="/member/add"/>">Add</a></li>
+                        <li><a href="<c:url value="/member/list"/>">List</a></li>
+                    </ul>
+                </li>
 
             </ul>
         </div><!-- /.navbar-collapse -->

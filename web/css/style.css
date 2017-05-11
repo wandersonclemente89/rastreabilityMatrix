@@ -23,3 +23,7 @@
 .form-title{
     text-align: center;
 }
+
+.dataTables_filter{
+    float: right;
+}
