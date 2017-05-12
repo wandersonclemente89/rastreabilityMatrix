@@ -19,7 +19,7 @@
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
         <script>
             $(document).ready(function () {
-                $('#teamTable').DataTable();
+                $('#bucTable').DataTable();
             });
         </script>
 
@@ -30,7 +30,7 @@
             <div class="content-limit">
                 <h3 class="form-title">BUCs</h3>
                 <hr>
-                <table id="teamTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <table id="bucTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
                             <th>Id</th>

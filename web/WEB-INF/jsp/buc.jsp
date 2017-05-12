@@ -19,7 +19,7 @@
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
         <script>
             $(document).ready(function () {
-                $('#memberTable').DataTable();
+                $('#teamTable').DataTable();
             });
         </script>
 
@@ -28,29 +28,27 @@
         <%@ include file="/templates/menu.jsp" %>
         <div class="content">
             <div class="content-limit">
-                <h3 class="form-title">Members</h3>
+                <h3 class="form-title">BUCs</h3>
                 <hr>
-                <table id="memberTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <table id="teamTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>Signum</th>
+                            <th>Id</th>
                             <th>Name</th>
-                            <th>Role</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${members}" var="member">
+                        <c:forEach items="${bucs}" var="buc">
                             <tr>
-                                <td>${member.signum}</td>
-                                <td>${member.name}</td>
-                                <td>${member.role}</td>
+                                <td>${buc.id}</td>
+                                <td>${buc.name}</td>
                                 <td>
 
                                     <button type="button" class="btn btn-default" aria-label="Left Align">
                                         <span class="glyphicon glyphicon-pencil"/>
                                     </button>
-                                    <a href="<c:url value="/member/delete?id=${member.signum}"/>">
+                                    <a href="<c:url value="/buc/delete?id=${buc.id}"/>">
                                         <button type="button" class="btn btn-danger" aria-label="Left Align">
                                             <span class="glyphicon glyphicon glyphicon-trash"/>
                                         </button>

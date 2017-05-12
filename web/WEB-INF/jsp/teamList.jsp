@@ -47,9 +47,11 @@
                                 <td>${team.project}</td>
                                 <td>
 
-                                    <button type="button" class="btn btn-default" aria-label="Left Align">
+                                    <a href="<c:url value="/team/update?id=${team.id}"/>">
+                                        <button type="button" class="btn btn-default" aria-label="Left Align">
                                         <span class="glyphicon glyphicon-pencil"/>
                                     </button>
+                                    </a>
                                     <a href="<c:url value="/team/delete?id=${team.id}"/>">
                                         <button type="button" class="btn btn-danger" aria-label="Left Align">
                                             <span class="glyphicon glyphicon glyphicon-trash"/>

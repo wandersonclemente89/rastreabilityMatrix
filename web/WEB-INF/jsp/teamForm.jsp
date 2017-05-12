@@ -25,13 +25,13 @@
                 <form method="post">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
-                        <input class="form-control" name="name" placeholder="Enter name">
+                        <input class="form-control" name="name" value="${team.name}" placeholder="Enter name">
                     </div>
                     <div class="form-group">
                         <label for="project">Project</label>
                         <select class="form-control" name="project">
-                            <option>RM OM</option>
-                            <option>CBIO</option>
+                            <option <c:if test = "${team.project == 'RM OM'}"> selected</c:if>>RM OM</option>
+                            <option <c:if test = "${team.project == 'CBIO'}"> selected</c:if>>CBIO</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>

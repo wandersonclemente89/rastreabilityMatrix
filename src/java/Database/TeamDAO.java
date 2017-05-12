@@ -59,6 +59,7 @@ public class TeamDAO {
             stmt = conn.prepareStatement("UPDATE TEAM SET name=?, project=? WHERE id=?");
             stmt.setString(1, team.getName());
             stmt.setString(2, team.getProject());
+            stmt.setInt(3, team.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
