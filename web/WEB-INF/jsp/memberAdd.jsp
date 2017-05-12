@@ -26,11 +26,11 @@
                 <form method="post">
                     <div class="form-group">
                         <label>Signum</label>
-                        <input class="form-control" name="signum" placeholder="Enter Signum">
+                        <input class="form-control" name="signum" placeholder="Enter Signum" required maxlength="7">
                     </div>
                     <div class="form-group">
                         <label>Name</label>
-                        <input class="form-control" name="name" placeholder="Enter Name">
+                        <input class="form-control" name="name" placeholder="Enter Name" required>
                     </div>
                     <div class="form-group">
                         <label>Role</label>

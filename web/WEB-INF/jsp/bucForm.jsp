@@ -27,7 +27,7 @@
                 <form method="post">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
-                        <input class="form-control" name="name" value="${buc.name}"placeholder="Enter name">
+                        <input class="form-control" name="name" value="${buc.name}"placeholder="Enter name" required>
                     </div>
                     <div class="form-group">
                         <label for="project">Teams</label>
