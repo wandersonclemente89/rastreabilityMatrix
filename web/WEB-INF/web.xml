@@ -36,6 +36,10 @@
         <servlet-name>SprintDelete</servlet-name>
         <servlet-class>Servlet.SprintDelete</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MemberDelete</servlet-name>
+        <servlet-class>Servlet.MemberDelete</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MemberAdd</servlet-name>
         <url-pattern>/member/add</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>SprintDelete</servlet-name>
         <url-pattern>/sprint/delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MemberDelete</servlet-name>
+        <url-pattern>/member/delete</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

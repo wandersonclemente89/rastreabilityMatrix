@@ -50,7 +50,7 @@
                                     <button type="button" class="btn btn-default" aria-label="Left Align">
                                         <span class="glyphicon glyphicon-pencil"/>
                                     </button>
-                                    <a href="<c:url value="/team/delete?id=${member.signum}"/>">
+                                    <a href="<c:url value="/member/delete?id=${member.signum}"/>">
                                         <button type="button" class="btn btn-danger" aria-label="Left Align">
                                             <span class="glyphicon glyphicon glyphicon-trash"/>
                                         </button>
