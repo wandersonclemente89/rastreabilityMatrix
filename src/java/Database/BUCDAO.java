@@ -66,6 +66,27 @@ public class BUCDAO {
         return bucId;
     }
     
+      public BUC getById(int id){
+        Connection conn = ConnectionDb.getConnection();
+        ResultSet rs =null;
+        BUC buc = new BUC();
+        PreparedStatement stmt = null;
+        try {         
+            stmt = conn.prepareStatement("SELECT * FROM BUC WHERE ID=?");
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+            if(rs.next()){
+                buc.setId(rs.getInt("id"));
+                buc.setName(rs.getString("name"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn,stmt);
+        }
+        return buc;
+    }
+    
     public void update(BUC buc){
         Connection conn = ConnectionDb.getConnection();
 

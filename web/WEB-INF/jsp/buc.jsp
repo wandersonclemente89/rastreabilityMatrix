@@ -19,7 +19,7 @@
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
         <script>
             $(document).ready(function () {
-                $('#teamTable').DataTable();
+                $('#BRTable').DataTable();
             });
         </script>
 
@@ -28,37 +28,55 @@
         <%@ include file="/templates/menu.jsp" %>
         <div class="content">
             <div class="content-limit">
-                <h3 class="form-title">BUCs</h3>
-                <hr>
-                <table id="teamTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${bucs}" var="buc">
-                            <tr>
-                                <td>${buc.id}</td>
-                                <td>${buc.name}</td>
-                                <td>
+                <div>
+                    <h3>${BUC.name}</h3>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Business Requirements</a></li>
+                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Technical Requirements</a></li>
+                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Test Case</a></li>
+                    </ul>
 
-                                    <button type="button" class="btn btn-default" aria-label="Left Align">
-                                        <span class="glyphicon glyphicon-pencil"/>
-                                    </button>
-                                    <a href="<c:url value="/buc/delete?id=${buc.id}"/>">
-                                        <button type="button" class="btn btn-danger" aria-label="Left Align">
-                                            <span class="glyphicon glyphicon glyphicon-trash"/>
-                                        </button>
-                                    </a>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="home">
+                            <div>
+                                <table id="BRTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${sprints}" var="sprint">
+                                            <tr>
+                                                <td>${sprint.id}</td>
+                                                <td>${sprint.name}</td>
+                                                <td>
 
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
+                                                    <button type="button" class="btn btn-default" aria-label="Left Align">
+                                                        <span class="glyphicon glyphicon-pencil"/>
+                                                    </button>
+                                                    <a href="<c:url value="/team/delete?id=${sprint.id}"/>">
+                                                        <button type="button" class="btn btn-danger" aria-label="Left Align">
+                                                            <span class="glyphicon glyphicon glyphicon-trash"/>
+                                                        </button>
+                                                    </a>
+
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="profile">...</div>
+                        <div role="tabpanel" class="tab-pane" id="messages">...</div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </body>

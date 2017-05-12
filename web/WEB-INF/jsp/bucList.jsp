@@ -44,6 +44,11 @@
                                 <td>${buc.id}</td>
                                 <td>${buc.name}</td>
                                 <td>
+                                    <a href="<c:url value="/buc?id=${buc.id}"/>">
+                                        <button type="button" class="btn btn-default" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon glyphicon glyphicon-search"/>
+                                        </button>
+                                    </a>
 
                                     <button type="button" class="btn btn-default" aria-label="Left Align">
                                         <span class="glyphicon glyphicon-pencil"/>
