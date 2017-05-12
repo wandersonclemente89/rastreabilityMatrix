@@ -27,3 +27,23 @@
 .dataTables_filter{
     float: right;
 }
+
+.tab-content{
+    border: 1px solid #ddd;
+    margin-top: -1px;
+    padding-bottom: 20px;
+}
+
+.tab-pane{
+    margin-top: 30px;
+}
+
+.nav-tabs{
+    margin-bottom: 0px;
+    position: relative;
+    z-index: 1;
+}
+
+.generate-report{
+    float: right;
+}
