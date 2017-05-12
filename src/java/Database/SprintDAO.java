@@ -24,7 +24,7 @@ public class SprintDAO {
         PreparedStatement stmt = null;
         try {         
             stmt = conn.prepareStatement("INSERT INTO SPRINT (name) values (?)");
-            stmt.setInt(1, sprint.getName());
+            stmt.setString(1, sprint.getName());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -54,7 +54,7 @@ public class SprintDAO {
         PreparedStatement stmt = null;
         try {         
             stmt = conn.prepareStatement("UPDATE SPRINT SET name=? WHERE id=?");
-            stmt.setInt(1, sprint.getName());
+            stmt.setString(1, sprint.getName());
             stmt.setInt(2, sprint.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
@@ -62,6 +62,25 @@ public class SprintDAO {
         }finally{
             ConnectionDb.closeConnection(conn,stmt);
         }
+    }
+    
+    public int getIDbyName(String sprintName){
+        Connection conn = ConnectionDb.getConnection();
+        ResultSet rs =null;
+        int sprintId = -1;
+        PreparedStatement stmt = null;
+        try {         
+            stmt = conn.prepareStatement("SELECT * FROM SPRINT WHERE NAME=?");
+            stmt.setString(1, sprintName);
+            rs = stmt.executeQuery();
+            while (rs.next())
+                sprintId = rs.getInt("id");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn,stmt);
+        }
+        return sprintId;
     }
 
     public List<Sprint> read(){
@@ -77,7 +96,7 @@ public class SprintDAO {
             while(rs.next()){
                 Sprint sprint = new Sprint();
                 sprint.setId(rs.getInt("ID"));
-                sprint.setName(rs.getInt("NAME"));                
+                sprint.setName(rs.getString("NAME"));                
                 sprintList.add(sprint);
             }
         } catch (SQLException ex) {

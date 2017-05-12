@@ -72,7 +72,7 @@ public class SprintTest {
         System.out.println("getName");
         Sprint instance = new Sprint();
         int expResult = 0;
-        int result = instance.getName();
+        String result = instance.getName();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -84,7 +84,7 @@ public class SprintTest {
     @Test
     public void testSetName() {
         System.out.println("setName");
-        int name = 0;
+        String name = null;
         Sprint instance = new Sprint();
         instance.setName(name);
         // TODO review the generated test code and remove the default call to fail.

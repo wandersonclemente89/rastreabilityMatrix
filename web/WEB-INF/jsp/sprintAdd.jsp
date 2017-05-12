@@ -24,18 +24,17 @@
             <div class="content-limit">
                 <h3 class="form-title">Sprint Register</h3>
                 <hr>
-                <form>
+                <form method="post">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
                         <input class="form-control" name="name" placeholder="Enter name">
                     </div>
                     <div class="form-group">
                         <label for="project">BUCs</label>
-                        <select name="teams" class="selectpicker form-control" multiple>
-                            <option>FT34-17</option>
-                            <option>FT34-17</option>
-                            <option>FT34-17</option>
-                            <option>FT34-17</option>
+                        <select name="bucs" class="selectpicker form-control" multiple>
+                            <c:forEach items="${bucs}" var="buc">
+                                <option value="${buc.id}">${buc.name}</option>
+                            </c:forEach>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>

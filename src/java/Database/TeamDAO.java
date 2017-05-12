@@ -67,6 +67,29 @@ public class TeamDAO {
         }
     }
     
+    public Team getById(int id){
+        Connection conn = ConnectionDb.getConnection();
+        ResultSet rs =null;
+        Team team = null;
+        PreparedStatement stmt = null;
+        try {         
+            stmt = conn.prepareStatement("SELECT * FROM TEAM WHERE ID=?");
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+            if (rs.next()){
+                team = new Team();
+                team.setId(rs.getInt("ID"));
+                team.setName(rs.getString("NAME"));
+                team.setProject(rs.getString("PROJECT"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn,stmt);
+        }
+        return team;
+    }
+    
     public List<Team> read(){
         Connection conn = ConnectionDb.getConnection();
         PreparedStatement stmt = null;
