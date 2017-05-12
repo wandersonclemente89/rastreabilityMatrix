@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.bean.BUCHasSprint;
 import model.bean.TeamHasBUC;
 
 /**
@@ -92,5 +93,46 @@ public class TeamHasBUCDAO {
         }
         
         return teamHasBUCList;
+    }
+    
+    public List<TeamHasBUC> getById(int bucId){
+        Connection conn = ConnectionDb.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<TeamHasBUC> teamHasBUCList = new ArrayList<>();
+        
+        try {
+            stmt = conn.prepareStatement("SELECT * FROM team_has_buc WHERE BUC_ID = ?");
+            stmt.setInt(1, bucId);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                TeamHasBUC teamHasBUC = new TeamHasBUC();
+                teamHasBUC.setBUCId(rs.getInt("BUC_ID"));
+                teamHasBUC.setTeamId(rs.getInt("TEAM_ID"));
+      
+                teamHasBUCList.add(teamHasBUC);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn, stmt,rs);
+        }
+        
+        return teamHasBUCList;
+    }
+    public void deleteById(int bucId){
+        Connection conn = ConnectionDb.getConnection();
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = conn.prepareStatement("DELETE FROM team_has_buc WHERE BUC_ID = ?");
+            stmt.setInt(1, bucId);
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn, stmt);
+        }
     }
 }

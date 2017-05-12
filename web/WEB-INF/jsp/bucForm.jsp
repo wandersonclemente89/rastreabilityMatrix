@@ -27,13 +27,18 @@
                 <form method="post">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
-                        <input class="form-control" name="name" placeholder="Enter name">
+                        <input class="form-control" name="name" value="${buc.name}"placeholder="Enter name">
                     </div>
                     <div class="form-group">
                         <label for="project">Teams</label>
                         <select name="teams" class="selectpicker form-control" multiple>
                             <c:forEach items="${teams}" var="team">
-                                <option value="${team.id}">${team.name}</option>
+
+                                <option value="${team.id}" 
+                                        <c:forEach items="${selectedTeams}" var="selectedTeam">
+                                            <c:if test="${selectedTeam.teamId == team.id}">selected</c:if>
+                                        </c:forEach>>${team.name}
+                                </option>
                             </c:forEach>
                         </select>
                     </div>

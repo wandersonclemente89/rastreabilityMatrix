@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.bean.BUC;
 import model.bean.BUCHasSprint;
 import model.bean.Sprint;
-import model.bean.Team;
 
 /**
  *

@@ -52,6 +52,10 @@
         <servlet-name>SprintUpdate</servlet-name>
         <servlet-class>Servlet.SprintUpdate</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BUCUpdate</servlet-name>
+        <servlet-class>Servlet.BUCUpdate</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MemberAdd</servlet-name>
         <url-pattern>/member/add</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>SprintUpdate</servlet-name>
         <url-pattern>/sprint/update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BUCUpdate</servlet-name>
+        <url-pattern>/buc/update</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

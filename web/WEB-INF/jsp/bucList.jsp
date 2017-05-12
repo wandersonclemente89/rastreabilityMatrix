@@ -49,10 +49,11 @@
                                             <span class="glyphicon glyphicon glyphicon glyphicon-search"/>
                                         </button>
                                     </a>
-
+                                    <a href="<c:url value="/buc/update?id=${buc.id}"/>">
                                     <button type="button" class="btn btn-default" aria-label="Left Align">
                                         <span class="glyphicon glyphicon-pencil"/>
                                     </button>
+                                    </a>
                                     <a href="<c:url value="/buc/delete?id=${buc.id}"/>">
                                         <button type="button" class="btn btn-danger" aria-label="Left Align">
                                             <span class="glyphicon glyphicon glyphicon-trash"/>

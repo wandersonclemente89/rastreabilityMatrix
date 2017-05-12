@@ -27,7 +27,7 @@ public class bucAdd extends HttpServlet {
         
         request.setAttribute("teams", teams);
         
-        String jsp = "/WEB-INF/jsp/bucAdd.jsp";
+        String jsp = "/WEB-INF/jsp/bucForm.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(jsp);
         dispatcher.forward(request, response);
     }
