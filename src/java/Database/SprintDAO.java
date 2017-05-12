@@ -47,6 +47,28 @@ public class SprintDAO {
             ConnectionDb.closeConnection(conn,stmt);
         }
     }
+    
+    public Sprint getById(int id){
+        Connection conn = ConnectionDb.getConnection();
+        ResultSet rs =null;
+        Sprint sprint = null;
+        PreparedStatement stmt = null;
+        try {         
+            stmt = conn.prepareStatement("SELECT * FROM SPRINT WHERE ID=?");
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+            if (rs.next()){
+                sprint = new Sprint();
+                sprint.setId(rs.getInt("ID"));
+                sprint.setName(rs.getString("NAME"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn,stmt);
+        }
+        return sprint;
+    }
         
     public void update(Sprint sprint){
         Connection conn = ConnectionDb.getConnection();

@@ -4,9 +4,7 @@ package Servlet;
 import Database.BUCDAO;
 import Database.BUCHasSprintDAO;
 import Database.SprintDAO;
-import Database.TeamDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,8 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.bean.BUC;
 import model.bean.BUCHasSprint;
 import model.bean.Sprint;
-import model.bean.Team;
-import model.bean.TeamHasBUC;
 
 /**
  *
@@ -38,7 +34,7 @@ public class SprintAdd extends HttpServlet {
         
         request.setAttribute("bucs", bucs);
         
-        String jsp = "/WEB-INF/jsp/sprintAdd.jsp";
+        String jsp = "/WEB-INF/jsp/sprintForm.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(jsp);
         dispatcher.forward(request, response);
     }

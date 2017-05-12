@@ -27,13 +27,18 @@
                 <form method="post">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
-                        <input class="form-control" name="name" placeholder="Enter name">
+                        <input class="form-control" name="name" value="${sprint.name}" placeholder="Enter name">
                     </div>
                     <div class="form-group">
                         <label for="project">BUCs</label>
                         <select name="bucs" class="selectpicker form-control" multiple>
                             <c:forEach items="${bucs}" var="buc">
-                                <option value="${buc.id}">${buc.name}</option>
+
+                                <option value="${buc.id}" 
+                                        <c:forEach items="${selectedBucs}" var="selectedBuc">
+                                            <c:if test="${selectedBuc.BUCId == buc.id}">selected</c:if>
+                                        </c:forEach>>${buc.name}
+                                </option>
                             </c:forEach>
                         </select>
                     </div>

@@ -93,4 +93,45 @@ public class BUCHasSprintDAO {
         
         return bUCHasSprintList;
     }
+    
+    public List<BUCHasSprint> getById(int sprintId){
+        Connection conn = ConnectionDb.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<BUCHasSprint> bUCHasSprintList = new ArrayList<>();
+        
+        try {
+            stmt = conn.prepareStatement("SELECT * FROM buc_has_sprint WHERE SPRINT_ID = ?");
+            stmt.setInt(1, sprintId);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                BUCHasSprint bUCHasSprint = new BUCHasSprint();
+                bUCHasSprint.setBUCId(rs.getInt("BUC_ID"));
+                bUCHasSprint.setSprintId(rs.getInt("SPRINT_ID"));
+      
+                bUCHasSprintList.add(bUCHasSprint);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn, stmt,rs);
+        }
+        
+        return bUCHasSprintList;
+    }
+    public void deleteById(int sprintId){
+        Connection conn = ConnectionDb.getConnection();
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = conn.prepareStatement("DELETE FROM buc_has_sprint WHERE SPRINT_ID = ?");
+            stmt.setInt(1, sprintId);
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn, stmt);
+        }
+    }
 }

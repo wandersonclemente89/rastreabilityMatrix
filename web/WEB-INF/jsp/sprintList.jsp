@@ -44,10 +44,11 @@
                                 <td>${sprint.id}</td>
                                 <td>${sprint.name}</td>
                                 <td>
-
+                                    <a href="<c:url value="/sprint/update?id=${sprint.id}"/>">
                                     <button type="button" class="btn btn-default" aria-label="Left Align">
                                         <span class="glyphicon glyphicon-pencil"/>
                                     </button>
+                                    </a>
                                     <a href="<c:url value="/sprint/delete?id=${sprint.id}"/>">
                                         <button type="button" class="btn btn-danger" aria-label="Left Align">
                                             <span class="glyphicon glyphicon glyphicon-trash"/>

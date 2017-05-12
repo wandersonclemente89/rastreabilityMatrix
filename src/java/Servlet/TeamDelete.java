@@ -27,7 +27,7 @@ public class TeamDelete extends HttpServlet {
         team.setId(id);
         
         TeamDAO teamDAO = new TeamDAO();
-        teamDAO.update(team);
+        teamDAO.delete(team);
         
         response.sendRedirect("list");    
     }
