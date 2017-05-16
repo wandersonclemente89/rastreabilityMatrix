@@ -47,3 +47,11 @@
 .generate-report{
     float: right;
 }
+
+td a:hover {
+    text-decoration: none;
+}
+
+.dataTables_wrapper{
+    padding: 20px;
+}

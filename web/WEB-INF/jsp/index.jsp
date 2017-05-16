@@ -20,7 +20,7 @@
                 <div class="row">
                     <c:forEach items="${teams}" var="team">
                         <div class="col-md-3">
-                        <a href="#">
+                        <a href="<c:url value="/team?id=${team.id}"/>">
                             <div class="jumbotron jumbotron-custom">
                                 <h2>${team.name}</h2>
                                 <p><span class="glyphicon glyphicon-plus-sign"></span></p>

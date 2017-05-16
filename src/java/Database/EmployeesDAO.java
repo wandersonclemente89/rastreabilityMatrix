@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.bean.BUCHasSprint;
 import model.bean.Employees;
 
 /**
@@ -95,6 +96,34 @@ public class EmployeesDAO {
         }
         
         return employesList;
+    }
+    
+    public List<Employees> getByIdTeam(int teamId){
+        Connection conn = ConnectionDb.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Employees> employeesList = new ArrayList<>();
+        
+        try {
+            stmt = conn.prepareStatement("SELECT * FROM EMPLOYEES WHERE TEAM_ID = ?");
+            stmt.setInt(1, teamId);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Employees employees = new Employees();
+                employees.setSignum(rs.getString("SIGNUM"));
+                employees.setName(rs.getString("NAME"));
+                employees.setRole(rs.getString("ROLE"));
+      
+                employeesList.add(employees);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn, stmt,rs);
+        }
+        
+        return employeesList;
     }
         
 }

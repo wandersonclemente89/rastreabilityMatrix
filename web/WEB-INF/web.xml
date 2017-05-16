@@ -60,6 +60,10 @@
         <servlet-name>Dashboard</servlet-name>
         <servlet-class>Servlet.Home</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Team</servlet-name>
+        <servlet-class>Servlet.TeamDashboard</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MemberAdd</servlet-name>
         <url-pattern>/member/add</url-pattern>
@@ -119,6 +123,10 @@
     <servlet-mapping>
         <servlet-name>Dashboard</servlet-name>
         <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Team</servlet-name>
+        <url-pattern>/team</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
