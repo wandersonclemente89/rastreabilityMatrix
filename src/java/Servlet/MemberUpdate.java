@@ -23,7 +23,13 @@ import model.bean.Team;
  */
 public class MemberUpdate extends HttpServlet {
 
-
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -45,6 +51,13 @@ public class MemberUpdate extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -54,7 +67,7 @@ public class MemberUpdate extends HttpServlet {
        int teamID = Integer.parseInt(request.getParameter("team"));
        
        EmployeesDAO employeesDAO = new EmployeesDAO();
-       TeamDAO teamDAO = new TeamDAO();
+
        
        Employees employees = employeesDAO.getBySignum(signum);
        employees.setName(name);

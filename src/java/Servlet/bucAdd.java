@@ -15,9 +15,19 @@ import model.bean.BUC;
 import model.bean.Team;
 import model.bean.TeamHasBUC;
 
+/**
+ *
+ * @author wanderson.barros
+ */
 public class bucAdd extends HttpServlet {
 
-
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -32,6 +42,13 @@ public class bucAdd extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

@@ -41,7 +41,7 @@
                                     <th>Signum</th>
                                     <th>Name</th>
                                     <th>Role</th>
-                                    <th>Action</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -50,20 +50,7 @@
                                         <td>${member.signum}</td>
                                         <td>${member.name}</td>
                                         <td>${member.role}</td>
-                                        <td>
-
-                                            <a href="<c:url value="/member/update?id=${member.signum}"/>">
-                                                <button type="button" class="btn btn-default" aria-label="Left Align">
-                                                    <span class="glyphicon glyphicon-pencil"/>
-                                                </button>
-                                            </a>
-                                            <a href="<c:url value="/member/delete?id=${member.signum}"/>">
-                                                <button type="button" class="btn btn-danger" aria-label="Left Align">
-                                                    <span class="glyphicon glyphicon glyphicon-trash"/>
-                                                </button>
-                                            </a>
-
-                                        </td>
+                                        
                                     </tr>
                                 </c:forEach>
                             </tbody>
@@ -94,17 +81,7 @@
                                                     <span class="glyphicon glyphicon glyphicon glyphicon-search"/>
                                                 </button>
                                             </a>
-                                            <a href="<c:url value="/buc/update?id=${buc.id}"/>">
-                                                <button type="button" class="btn btn-default" aria-label="Left Align">
-                                                    <span class="glyphicon glyphicon-pencil"/>
-                                                </button>
-                                            </a>
-                                            <a href="<c:url value="/buc/delete?id=${buc.id}"/>">
-                                                <button type="button" class="btn btn-danger" aria-label="Left Align">
-                                                    <span class="glyphicon glyphicon glyphicon-trash"/>
-                                                </button>
-                                            </a>
-
+                                    
                                         </td>
                                     </tr>
                                 </c:forEach>

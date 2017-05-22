@@ -13,10 +13,19 @@ import javax.servlet.http.HttpServletResponse;
 import model.bean.Employees;
 import model.bean.Team;
 
-
+/**
+ *
+ * @author wanderson.barros
+ */
 public class MemberAdd extends HttpServlet {
 
-
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -32,7 +41,13 @@ public class MemberAdd extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

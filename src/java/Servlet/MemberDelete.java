@@ -6,14 +6,12 @@
 package Servlet;
 
 import Database.EmployeesDAO;
-import Database.TeamDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.bean.Employees;
-import model.bean.Team;
 
 /**
  *
@@ -21,8 +19,13 @@ import model.bean.Team;
  */
 public class MemberDelete extends HttpServlet {
 
-
-
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -38,6 +41,13 @@ public class MemberDelete extends HttpServlet {
         
     }
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

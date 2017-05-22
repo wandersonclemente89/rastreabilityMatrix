@@ -18,6 +18,11 @@ import model.bean.Sprint;
  * @author felipe.padua
  */
 public class SprintDAO {
+
+    /**
+     * Insert a new Sprint into database
+     * @param sprint Object from Sprint class
+     */
     public void insert(Sprint sprint){
         Connection conn = ConnectionDb.getConnection();
 
@@ -33,6 +38,10 @@ public class SprintDAO {
         }
     }
     
+    /**
+     * Delete a sprint from database
+     * @param sprint Object from Sprint Class
+     */
     public void delete(Sprint sprint){
         Connection conn = ConnectionDb.getConnection();
 
@@ -48,6 +57,11 @@ public class SprintDAO {
         }
     }
     
+    /**
+     * Returns a Sprint object from its ID
+     * @param id The ID of the sprint
+     * @return Sprint Object
+     */
     public Sprint getById(int id){
         Connection conn = ConnectionDb.getConnection();
         ResultSet rs =null;
@@ -70,6 +84,10 @@ public class SprintDAO {
         return sprint;
     }
         
+    /**
+     * Update a Sprint information
+     * @param sprint Object from Sprint class
+     */
     public void update(Sprint sprint){
         Connection conn = ConnectionDb.getConnection();
 
@@ -86,6 +104,11 @@ public class SprintDAO {
         }
     }
     
+    /**
+     * Returns the Sprint ID from its name
+     * @param sprintName Sprint's name
+     * @return The ID of the Sprint
+     */
     public int getIDbyName(String sprintName){
         Connection conn = ConnectionDb.getConnection();
         ResultSet rs =null;
@@ -105,6 +128,10 @@ public class SprintDAO {
         return sprintId;
     }
 
+    /**
+     * Returns a List of all Sprints in database
+     * @return List of Sprints
+     */
     public List<Sprint> read(){
         Connection conn = ConnectionDb.getConnection();
         PreparedStatement stmt = null;

@@ -57,9 +57,9 @@
                     </div>
                     <div class="form-group">
                         <label for="project">Members</label>
-                        <select name="menbers" class="selectpicker form-control" multiple>
+                        <select name="members" class="selectpicker form-control" multiple>
                             <option>Flávio</option>
-                            <option>Wamderson</option>
+                            <option>Wanderson</option>
                             
                         </select>
                     </div>
