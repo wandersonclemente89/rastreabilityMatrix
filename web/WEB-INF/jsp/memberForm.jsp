@@ -26,15 +26,15 @@
                 <form method="post">
                     <div class="form-group">
                         <label>Signum</label>
-                        <input class="form-control" name="signum" placeholder="Enter Signum" required maxlength="7">
+                        <input class="form-control" value="${member.signum}" name="signum" placeholder="Enter Signum" required maxlength="7">
                     </div>
                     <div class="form-group">
                         <label>Name</label>
-                        <input class="form-control" name="name" placeholder="Enter Name" required>
+                        <input class="form-control" value="${member.name }" name="name" placeholder="Enter Name" required>
                     </div>
                     <div class="form-group">
                         <label>Role</label>
-                        <select class="form-control" name="role">
+                        <select class="form-control" value="${member.role}" name="role">
                             <option>Developer</option>
                             <option>QA</option>
                         </select>
@@ -43,7 +43,9 @@
                         <label>Team</label>
                         <select class="form-control" name="team">
                             <c:forEach items="${teams}" var="team">
-                                <option value="${team.id}">${team.name}</option>
+                                <option value="${team.id}"
+                                    <c:if test="${teamName == team.name}">selected</c:if>
+                                        >${team.name}</option>
                             </c:forEach>
                         </select>
                     </div>

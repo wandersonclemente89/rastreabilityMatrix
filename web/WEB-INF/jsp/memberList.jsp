@@ -46,10 +46,11 @@
                                 <td>${member.name}</td>
                                 <td>${member.role}</td>
                                 <td>
-
+                                    <a href="<c:url value="/member/update?id=${member.signum}"/>">   
                                     <button type="button" class="btn btn-default" aria-label="Left Align">
                                         <span class="glyphicon glyphicon-pencil"/>
                                     </button>
+                                    </a>
                                     <a href="<c:url value="/member/delete?id=${member.signum}"/>">
                                         <button type="button" class="btn btn-danger" aria-label="Left Align">
                                             <span class="glyphicon glyphicon glyphicon-trash"/>

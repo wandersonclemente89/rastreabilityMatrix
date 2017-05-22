@@ -70,8 +70,6 @@ public class SprintUpdate extends HttpServlet {
             
             bUCHasSprintDAO.insert(bUCHasSprint);
         }
-        
-        
 
         response.sendRedirect("list");    
     }

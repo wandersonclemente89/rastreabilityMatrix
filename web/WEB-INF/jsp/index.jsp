@@ -26,7 +26,7 @@
                                 <p><span class="glyphicon glyphicon-plus-sign"></span></p>
                             </div>
                         </a>
-                    </div>
+                        </div>
                     </c:forEach>
                     
                 </div>

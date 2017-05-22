@@ -118,6 +118,25 @@ public class TeamDAO {
         return teamList;
     }
     
+    public int getIDbyName(String teamName){
+        Connection conn = ConnectionDb.getConnection();
+        ResultSet rs =null;
+        int teamId = -1;
+        PreparedStatement stmt = null;
+        try {         
+            stmt = conn.prepareStatement("SELECT * FROM TEAM WHERE NAME=?");
+            stmt.setString(1, teamName);
+            rs = stmt.executeQuery();
+            while (rs.next())
+                teamId = rs.getInt("id");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn,stmt);
+        }
+        return teamId;
+    }
+    
     
     
 }

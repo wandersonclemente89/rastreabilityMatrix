@@ -33,7 +33,6 @@
                         <label for="project">BUCs</label>
                         <select name="bucs" class="selectpicker form-control" multiple>
                             <c:forEach items="${bucs}" var="buc">
-
                                 <option value="${buc.id}" 
                                         <c:forEach items="${selectedBucs}" var="selectedBuc">
                                             <c:if test="${selectedBuc.BUCId == buc.id}">selected</c:if>

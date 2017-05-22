@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.bean.BUCHasSprint;
 import model.bean.Employees;
 
 /**
@@ -125,5 +124,27 @@ public class EmployeesDAO {
         
         return employeesList;
     }
-        
+        public Employees getBySignum(String signum){
+        Connection conn = ConnectionDb.getConnection();
+        ResultSet rs =null;
+        Employees employees = null;
+        PreparedStatement stmt = null;
+        try {         
+            stmt = conn.prepareStatement("SELECT * FROM EMPLOYEES WHERE SIGNUM=?");
+            stmt.setString(1, signum);
+            rs = stmt.executeQuery();
+            if (rs.next()){
+                employees = new Employees();
+                employees.setSignum(rs.getString("SIGNUM"));
+                employees.setName(rs.getString("NAME"));
+                employees.setRole(rs.getString("ROLE"));
+                employees.setTeamId(rs.getInt("TEAM_ID"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn,stmt);
+        }
+        return employees;
+    }
 }

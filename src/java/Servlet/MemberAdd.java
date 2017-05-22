@@ -27,7 +27,7 @@ public class MemberAdd extends HttpServlet {
         
         request.setAttribute("teams", teams);
         
-        String jsp = "/WEB-INF/jsp/memberAdd.jsp";
+        String jsp = "/WEB-INF/jsp/memberForm.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(jsp);
         dispatcher.forward(request, response);
     }
