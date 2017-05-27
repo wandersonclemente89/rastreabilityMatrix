@@ -61,15 +61,17 @@
         <servlet-class>Servlet.Home</servlet-class>
     </servlet>
     <servlet>
-
-
         <servlet-name>Team</servlet-name>
         <servlet-class>Servlet.TeamDashboard</servlet-class>
-</servlet>
-<servlet>
+    </servlet>
+    <servlet>
         <servlet-name>MemberUpdate</servlet-name>
         <servlet-class>Servlet.MemberUpdate</servlet-class>
-</servlet>
+    </servlet>
+    <servlet>
+        <servlet-name>BRAdd</servlet-name>
+        <servlet-class>Servlet.BRAdd</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MemberAdd</servlet-name>
         <url-pattern>/member/add</url-pattern>
@@ -133,10 +135,14 @@
     <servlet-mapping>
         <servlet-name>Team</servlet-name>
         <url-pattern>/team</url-pattern>
-</servlet-mapping> 
-<servlet-mapping>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>MemberUpdate</servlet-name>
         <url-pattern>/member/update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BRAdd</servlet-name>
+        <url-pattern>/businessRequirement/add</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

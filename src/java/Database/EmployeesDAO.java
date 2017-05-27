@@ -147,4 +147,23 @@ public class EmployeesDAO {
         }
         return employees;
     }
+    
+    public String getSignumbyName(String employeeName){
+        Connection conn = ConnectionDb.getConnection();
+        ResultSet rs =null;
+        String signum = null;
+        PreparedStatement stmt = null;
+        try {         
+            stmt = conn.prepareStatement("SELECT * FROM EMPLOYEES WHERE NAME=?");
+            stmt.setString(1, employeeName);
+            rs = stmt.executeQuery();
+            while (rs.next())
+                signum = rs.getString("signum");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn,stmt);
+        }
+        return signum;
+    }
 }

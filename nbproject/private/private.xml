@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/rastreabilityMatrix/src/java/Database/BUCHasSprintDAO.java</file>
+            <file>file:/D:/rastreabilityMatrix/web/WEB-INF/jsp/index.jsp</file>
+            <file>file:/D:/rastreabilityMatrix/src/java/Servlet/Home.java</file>
+            <file>file:/D:/rastreabilityMatrix/web/WEB-INF/jsp/teamForm.jsp</file>
+            <file>file:/D:/rastreabilityMatrix/web/templates/brContentTab.jsp</file>
+            <file>file:/D:/rastreabilityMatrix/web/WEB-INF/jsp/buc.jsp</file>
+            <file>file:/D:/rastreabilityMatrix/src/java/Servlet/BRAdd.java</file>
+            <file>file:/D:/rastreabilityMatrix/src/java/Servlet/TeamAdd.java</file>
+        </group>
+    </open-files>
 </project-private>

@@ -2,14 +2,23 @@
 package Servlet;
 
 import Database.BUCDAO;
+import Database.BusinessRequirementsDAO;
+import Database.EmployeesDAO;
+import Database.TechnicalRequirementsDAO;
+import Database.TestCasesDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.bean.BUC;
+import model.bean.BusinessRequirements;
+import model.bean.Employees;
+import model.bean.TechnicalRequirements;
+import model.bean.TestCases;
 
 /**
  *
@@ -31,6 +40,22 @@ public class Buc extends HttpServlet {
         BUCDAO bucDAO = new BUCDAO();
         BUC buc = bucDAO.getById(id);
         
+        BusinessRequirementsDAO brdao = new BusinessRequirementsDAO();
+        List<BusinessRequirements> businessRequirements = brdao.read();
+        
+        TechnicalRequirementsDAO trdao = new TechnicalRequirementsDAO();
+        List<TechnicalRequirements> technicalRequirements =  trdao.read();
+        
+        EmployeesDAO employeesDAO = new EmployeesDAO();
+        List<Employees> employees = employeesDAO.read();
+        
+        TestCasesDAO tcdao = new TestCasesDAO();
+        List<TestCases> testCases = tcdao.read();
+        
+        request.setAttribute("businessRequirements", businessRequirements);
+        request.setAttribute("technicalRequirements", technicalRequirements);
+        request.setAttribute("testCases", testCases);
+        request.setAttribute("members", employees);
         request.setAttribute("BUC", buc);
         
         String jsp = "/WEB-INF/jsp/buc.jsp";

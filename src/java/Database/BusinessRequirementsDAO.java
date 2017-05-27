@@ -23,7 +23,7 @@ public class BusinessRequirementsDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO BUSINESS_REQUIREMENTS (name,description,customer_needs,comments,status) values (?,?,?,?,?)");
+            stmt = conn.prepareStatement("INSERT INTO BUSINESS_REQUIREMENTS (name,description,customer_needs,comments,status_id) values (?,?,?,?,?)");
             stmt.setString(1, businessRequirements.getName());
             stmt.setString(2, businessRequirements.getDescription());
             stmt.setString(3, businessRequirements.getCustomerNeeds());
@@ -101,5 +101,22 @@ public class BusinessRequirementsDAO {
         
         return BusinessRequirementList;
     }
-
+    public int getIDbyName(String brName){
+        Connection conn = ConnectionDb.getConnection();
+        ResultSet rs =null;
+        int brID = -1;
+        PreparedStatement stmt = null;
+        try {         
+            stmt = conn.prepareStatement("SELECT * FROM business_requirements WHERE NAME=?");
+            stmt.setString(1, brName);
+            rs = stmt.executeQuery();
+            while (rs.next())
+                brID = rs.getInt("ID");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn,stmt);
+        }
+        return brID;
+    }
 }

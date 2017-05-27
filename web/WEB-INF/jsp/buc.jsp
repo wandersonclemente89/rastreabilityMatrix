@@ -22,6 +22,8 @@
         <script>
             $(document).ready(function () {
                 $('#brTable').DataTable();
+                $('#trTable').DataTable();
+                $('#tcTable').DataTable();
             });
         </script>
 
@@ -53,12 +55,11 @@
                             <div role="tabpanel" class="tab-pane active" id="home">
                                 <div class="content-tab">
                                     <%@ include file="/templates/brContentTab.jsp" %>
-                                    
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="profile">
                                 <div class="content-tab">
-                                    <%@ include file="/templates/trContentTab.jsp" %>
+                                    <%@ include file="/templates/trContentTab.jsp"  %>
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane" id="messages">

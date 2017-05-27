@@ -1,16 +1,24 @@
-<table id="BRTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+<table id="trTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
     <thead>
         <tr>
             <th>Id</th>
             <th>Name</th>
+            <th>Description</th>
+            <th>Comments</th>
+            <th>BR#</th>
+            <th>Status</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
-    <c:forEach items="${sprints}" var="sprint">
+    <c:forEach items="${technicalRequirements}" var="technicalRequirement">
         <tr>
-            <td>${sprint.id}</td>
-            <td>${sprint.name}</td>
+            <td>${technicalRequirement.id}</td>
+            <td>${technicalRequirement.name}</td>
+            <td>${technicalRequirement.description}</td>
+            <td>${technicalRequirement.comments}</td>
+            <td>${technicalRequirement.BusinessRequirementId}</td>
+            <td>${technicalRequirement.statusId}</td>
             <td>
 
                 <button type="button" class="btn btn-default" aria-label="Left Align">
@@ -26,17 +34,17 @@
     </c:forEach>
 </tbody>
 </table>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#br-modal">
-    <i class="glyphicon glyphicon glyphicon-plus"></i> Add Business Requirements
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tr-modal">
+    <i class="glyphicon glyphicon glyphicon-plus"></i> Add Technical Requirement
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="br-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="tr-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Add Business Requirements</h4>
+                <h4 class="modal-title" id="myModalLabel">Add Technical Requirement</h4>
             </div>
             <div class="modal-body">
                 <form method="post">
@@ -45,19 +53,36 @@
                         <input class="form-control" name="name" placeholder="Enter name">
                     </div>
                     <div class="form-group">
-                        <label for="project">Teams</label>
-                        <select name="teams" class="selectpicker form-control" multiple>
-                            <c:forEach items="${teams}" var="team">
-                                <option value="${team.id}">${team.name}</option>
+                        <label for="exampleInputEmail1">Description</label>
+                        <input class="form-control" name="description" placeholder="Enter description">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Comments</label>
+                        <textarea class="form-control" name="comments" placeholder="Enter comments"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="project">Business Requirement</label>
+                        <select name="businessRequirements" class="selectpicker form-control" multiple>
+                            <c:forEach items="${businessRequirements}" var="businessRequirement">
+                                <option value="${businessRequirement.id}">${businessRequirement.name}</option>
                             </c:forEach>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="project">Status</label>
+                        <select name="status" class="selectpicker form-control" multiple>
+                            <c:forEach items="${businessRequirements}" var="businessRequirement">
+                                <option value="${businessRequirement.id}">${businessRequirement.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            
         </div>
     </div>
 </div>
