@@ -23,7 +23,7 @@ public class TechnicalRequirementsDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO TECHNICAL_REQUIREMENTS (name,description,comments,business_requirements,status) values (?,?,?,?,?)");
+            stmt = conn.prepareStatement("INSERT INTO TECHNICAL_REQUIREMENTS (name,description,comments,business_requirements_id,status_id) values (?,?,?,?,?)");
             stmt.setString(1, technicalRequirements.getName());
             stmt.setString(2, technicalRequirements.getDescription());
             stmt.setString(3, technicalRequirements.getComments());

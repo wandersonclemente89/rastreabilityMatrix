@@ -5,41 +5,55 @@
  */
 package Servlet;
 
+import Database.BUCDAO;
 import Database.BusinessRequirementsDAO;
-import Database.BusinessRequirementsHasEmployeesDAO;
 import Database.EmployeesDAO;
+import Database.StatusDAO;
+import Database.TechnicalRequirementsDAO;
+import Database.TestCasesDAO;
+import Database.TestTypeDAO;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.bean.BUC;
 import model.bean.BusinessRequirements;
-import model.bean.BusinessRequirementsHasEmployees;
 import model.bean.Employees;
+import model.bean.Status;
+import model.bean.TechnicalRequirements;
+import model.bean.TestCases;
+import model.bean.TestType;
 
 /**
  *
  * @author wanderson.barros
  */
-public class BRAdd extends HttpServlet {
-    
-     
-    
+public class TRAdd extends HttpServlet {
+
+   
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+       // int id = Integer.parseInt(request.getParameter("id"));
+       // BUCDAO bucDAO = new BUCDAO();
+       // BUC buc = bucDAO.getById(id);
         
-      //  int id = Integer.parseInt(request.getParameter("id"));
-        EmployeesDAO employeesDAO = new EmployeesDAO();
-        List<Employees> members = employeesDAO.getByIdTeam(2);
         
-        BusinessRequirementsDAO brdao = new BusinessRequirementsDAO();
-        List<BusinessRequirements> businessRequirements = brdao.read();
+        TechnicalRequirementsDAO trdao = new TechnicalRequirementsDAO();
+        List<TechnicalRequirements> technicalRequirements =  trdao.read();
         
-        request.setAttribute("businessRequirements", businessRequirements);
+        StatusDAO statusDAO = new StatusDAO();
+        List<Status> statuses = statusDAO.read();
+        
+       
+        request.setAttribute("technicalRequirements", technicalRequirements);
+      
+        request.setAttribute("statuses", statuses);
+        //request.setAttribute("BUC", buc);
         
         String jsp = "/WEB-INF/jsp/buc.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(jsp);
@@ -47,42 +61,41 @@ public class BRAdd extends HttpServlet {
         
     }
 
+        
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String name = request.getParameter("name");
+         String name = request.getParameter("name");
         String description = request.getParameter("description");
-        String customerNeeds =  request.getParameter("customerNeeds");
         String comments = request.getParameter("comments");
-        String [] members = request.getParameterValues("members");
-        int status = Integer.parseInt(request.getParameter("status"));
+        int businessRequirementID = Integer.parseInt(request.getParameter("businessRequirements"));
+        int statusID = Integer.parseInt(request.getParameter("status"));
         
-        BusinessRequirementsDAO businessRequirementsDAO = new BusinessRequirementsDAO();
+        TechnicalRequirementsDAO trdao = new TechnicalRequirementsDAO();
         EmployeesDAO employeesDAO = new EmployeesDAO();
-        BusinessRequirements br = new BusinessRequirements();
+        TechnicalRequirements tr = new TechnicalRequirements();
 
-        br.setName(name);
-        br.setComments(comments);
-        br.setCustomerNeeds(customerNeeds);
-        br.setDescription(description);
-        br.setStatusId(status);
+        tr.setName(name);
+        tr.setComments(comments);
+        tr.setDescription(description);
+        tr.setBusinessRequirementId(businessRequirementID);
+        tr.setStatusId(statusID);
         
-        businessRequirementsDAO.insert(br);
-        
+        trdao.insert(tr);
+        /*
         for (int i=0;members!=null && i <members.length;i++){
             BusinessRequirementsHasEmployees brHasEmployees = new BusinessRequirementsHasEmployees();
             BusinessRequirementsHasEmployeesDAO brHasEmployeesDAO = new BusinessRequirementsHasEmployeesDAO();
            
-            brHasEmployees.setBRId(businessRequirementsDAO.getIDbyName(name));
+            brHasEmployees.setBRId(trdao.getIDbyName(name));
             brHasEmployees.setEmployeesSignum(employeesDAO.getSignumbyName(members[i]));
             
             brHasEmployeesDAO.insert(brHasEmployees);
         }
-        
+        */
         doGet(request, response);
-        //response.sendRedirect("/rastreabilityMatrixICC/buc?id=5"); 
     }
 
+    
 
 }

@@ -47,7 +47,7 @@
                 <h4 class="modal-title" id="myModalLabel">Add Technical Requirement</h4>
             </div>
             <div class="modal-body">
-                <form method="post">
+                <form method="post" action="/rastreabilityMatrixICC/technicalRequirement/add">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
                         <input class="form-control" name="name" placeholder="Enter name" required>

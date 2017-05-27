@@ -72,6 +72,10 @@
         <servlet-name>BRAdd</servlet-name>
         <servlet-class>Servlet.BRAdd</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TRAdd</servlet-name>
+        <servlet-class>Servlet.TRAdd</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MemberAdd</servlet-name>
         <url-pattern>/member/add</url-pattern>
@@ -143,6 +147,10 @@
     <servlet-mapping>
         <servlet-name>BRAdd</servlet-name>
         <url-pattern>/businessRequirement/add</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TRAdd</servlet-name>
+        <url-pattern>/technicalRequirement/add</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

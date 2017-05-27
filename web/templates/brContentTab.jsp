@@ -64,7 +64,7 @@
                     </div>
                     <div class="form-group">
                         <label for="project">Members</label>
-                        <select name="membersxs" class="selectpicker form-control" multiple>
+                        <select name="members" class="selectpicker form-control" multiple>
                             <c:forEach items="${members}" var="member">
                                 <option value="${member.signum}">${member.name}</option>
                             </c:forEach>
@@ -72,7 +72,7 @@
                     </div>
                             <div class="form-group">
                         <label for="project">Status</label>
-                        <select name="teams" class="selectpicker form-control" >
+                        <select name="status" class="selectpicker form-control" >
                             <c:forEach items="${statuses}" var="status">
                                 <option value="${status.id}">${status.name}</option>
                             </c:forEach>
