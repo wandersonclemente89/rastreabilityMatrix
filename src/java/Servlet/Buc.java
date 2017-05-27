@@ -4,8 +4,10 @@ package Servlet;
 import Database.BUCDAO;
 import Database.BusinessRequirementsDAO;
 import Database.EmployeesDAO;
+import Database.StatusDAO;
 import Database.TechnicalRequirementsDAO;
 import Database.TestCasesDAO;
+import Database.TestTypeDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -17,8 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 import model.bean.BUC;
 import model.bean.BusinessRequirements;
 import model.bean.Employees;
+import model.bean.Status;
 import model.bean.TechnicalRequirements;
 import model.bean.TestCases;
+import model.bean.TestType;
 
 /**
  *
@@ -46,6 +50,12 @@ public class Buc extends HttpServlet {
         TechnicalRequirementsDAO trdao = new TechnicalRequirementsDAO();
         List<TechnicalRequirements> technicalRequirements =  trdao.read();
         
+        TestTypeDAO testTypeDAO = new TestTypeDAO();
+        List<TestType> testTypes = testTypeDAO.read();
+        
+        StatusDAO statusDAO = new StatusDAO();
+        List<Status> statuses = statusDAO.read();
+        
         EmployeesDAO employeesDAO = new EmployeesDAO();
         List<Employees> employees = employeesDAO.read();
         
@@ -56,6 +66,8 @@ public class Buc extends HttpServlet {
         request.setAttribute("technicalRequirements", technicalRequirements);
         request.setAttribute("testCases", testCases);
         request.setAttribute("members", employees);
+        request.setAttribute("testTypes", testTypes);
+        request.setAttribute("statuses", statuses);
         request.setAttribute("BUC", buc);
         
         String jsp = "/WEB-INF/jsp/buc.jsp";

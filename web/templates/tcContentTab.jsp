@@ -49,11 +49,11 @@
                 <form method="post">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
-                        <input class="form-control" name="name" placeholder="Enter name">
+                        <input class="form-control" name="name" placeholder="Enter name" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Full Path</label>
-                        <input class="form-control" name="fullPath" placeholder="Enter the full path of the test case">
+                        <input class="form-control" name="fullPath" placeholder="Enter the full path of the test case" required>
                     </div>
                     <div class="form-group">
                         <label for="project">Owner</label>
@@ -65,17 +65,17 @@
                     </div>
                     <div class="form-group">
                         <label for="project">Status</label>
-                        <select name="status" class="selectpicker form-control" multiple>
-                            <c:forEach items="${businessRequirements}" var="businessRequirement">
-                                <option value="${businessRequirement.id}">${businessRequirement.name}</option>
+                        <select name="status" class="selectpicker form-control" >
+                            <c:forEach items="${statuses}" var="status">
+                                <option value="${status.id}">${status.name}</option>
                             </c:forEach>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="project">Test Type</label>
-                        <select name="testType" class="selectpicker form-control" multiple>
-                            <c:forEach items="${businessRequirements}" var="businessRequirement">
-                                <option value="${businessRequirement.id}">${businessRequirement.name}</option>
+                        <select name="testType" class="selectpicker form-control" >
+                            <c:forEach items="${testTypes}" var="testType">
+                                <option value="${testType.id}">${testType.name}</option>
                             </c:forEach>
                         </select>
                     </div>

@@ -48,11 +48,11 @@
                 <form method="post" action="/rastreabilityMatrixICC/businessRequirement/add">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
-                        <input class="form-control" name="name" placeholder="Enter name">
+                        <input class="form-control" name="name" placeholder="Enter name" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Description</label>
-                        <input class="form-control" name="description" placeholder="Enter description">
+                        <input class="form-control" name="description" placeholder="Enter description" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Customer needs</label>
@@ -72,9 +72,9 @@
                     </div>
                             <div class="form-group">
                         <label for="project">Status</label>
-                        <select name="teams" class="selectpicker form-control" multiple>
-                            <c:forEach items="${businessRequirements}" var="businessRequirement">
-                                <option value="${businessRequirement.id}">${businessRequirement.name}</option>
+                        <select name="teams" class="selectpicker form-control" >
+                            <c:forEach items="${statuses}" var="status">
+                                <option value="${status.id}">${status.name}</option>
                             </c:forEach>
                         </select>
                     </div>
