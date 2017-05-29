@@ -31,11 +31,9 @@ public class BRAdd extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+    
             
-        String jsp = "/buc";
-        RequestDispatcher dispatcher = request.getRequestDispatcher(jsp);
-        dispatcher.forward(request, response);
+      
         
     }
 
@@ -72,9 +70,9 @@ public class BRAdd extends HttpServlet {
             brHasEmployeesDAO.insert(brHasEmployees);
         }
         
-        int id = Integer.parseInt(request.getParameter("id"));
+       // int id = Integer.parseInt(request.getParameter("id"));
         //doGet(request, response);
-        response.sendRedirect("/rastreabilityMatrixICC/buc?id=5"); 
+       response.sendRedirect("/rastreabilityMatrixICC/buc?id="+request.getParameter("id")); 
     }
 
 

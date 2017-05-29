@@ -41,10 +41,7 @@ public class TRAdd extends HttpServlet {
        // int id = Integer.parseInt(request.getParameter("id"));
        // BUCDAO bucDAO = new BUCDAO();
        // BUC buc = bucDAO.getById(id);
-        
-         String jsp = "/buc";
-        RequestDispatcher dispatcher = request.getRequestDispatcher(jsp);
-        dispatcher.forward(request, response);
+       
         
         
     }
@@ -82,7 +79,7 @@ public class TRAdd extends HttpServlet {
         }
         */
         //doGet(request, response);
-        response.sendRedirect("/rastreabilityMatrixICC/buc?id=5"); 
+       response.sendRedirect("/rastreabilityMatrixICC/buc?id="+request.getParameter("id")); 
     }
 
     
