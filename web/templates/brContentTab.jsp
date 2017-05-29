@@ -78,6 +78,7 @@
                             </c:forEach>
                         </select>
                     </div>
+                                <input value="${BUC.id}" type="hidden" disabled name="id"/>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Save changes</button>

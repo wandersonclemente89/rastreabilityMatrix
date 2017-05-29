@@ -42,22 +42,10 @@ public class TRAdd extends HttpServlet {
        // BUCDAO bucDAO = new BUCDAO();
        // BUC buc = bucDAO.getById(id);
         
-        
-        TechnicalRequirementsDAO trdao = new TechnicalRequirementsDAO();
-        List<TechnicalRequirements> technicalRequirements =  trdao.read();
-        
-        StatusDAO statusDAO = new StatusDAO();
-        List<Status> statuses = statusDAO.read();
-        
-       
-        request.setAttribute("technicalRequirements", technicalRequirements);
-      
-        request.setAttribute("statuses", statuses);
-        //request.setAttribute("BUC", buc);
-        
-        String jsp = "/WEB-INF/jsp/buc.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(jsp);
+         String jsp = "/buc";
+        RequestDispatcher dispatcher = request.getRequestDispatcher(jsp);
         dispatcher.forward(request, response);
+        
         
     }
 
@@ -93,7 +81,8 @@ public class TRAdd extends HttpServlet {
             brHasEmployeesDAO.insert(brHasEmployees);
         }
         */
-        doGet(request, response);
+        //doGet(request, response);
+        response.sendRedirect("/rastreabilityMatrixICC/buc?id=5"); 
     }
 
     

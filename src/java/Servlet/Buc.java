@@ -9,7 +9,6 @@ import Database.TechnicalRequirementsDAO;
 import Database.TestCasesDAO;
 import Database.TestTypeDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

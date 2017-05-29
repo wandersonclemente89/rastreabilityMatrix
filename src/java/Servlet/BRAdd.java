@@ -31,18 +31,10 @@ public class BRAdd extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-      //  int id = Integer.parseInt(request.getParameter("id"));
-        EmployeesDAO employeesDAO = new EmployeesDAO();
-        List<Employees> members = employeesDAO.getByIdTeam(2);
-        
-        BusinessRequirementsDAO brdao = new BusinessRequirementsDAO();
-        List<BusinessRequirements> businessRequirements = brdao.read();
-        
-        request.setAttribute("businessRequirements", businessRequirements);
-        
-        String jsp = "/WEB-INF/jsp/buc.jsp";
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(jsp);
+        int id = Integer.parseInt(request.getParameter("id"));
+            
+        String jsp = "/buc";
+        RequestDispatcher dispatcher = request.getRequestDispatcher(jsp);
         dispatcher.forward(request, response);
         
     }
@@ -80,8 +72,9 @@ public class BRAdd extends HttpServlet {
             brHasEmployeesDAO.insert(brHasEmployees);
         }
         
-        doGet(request, response);
-        //response.sendRedirect("/rastreabilityMatrixICC/buc?id=5"); 
+        int id = Integer.parseInt(request.getParameter("id"));
+        //doGet(request, response);
+        response.sendRedirect("/rastreabilityMatrixICC/buc?id=5"); 
     }
 
 
