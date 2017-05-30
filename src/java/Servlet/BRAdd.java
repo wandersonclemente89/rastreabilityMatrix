@@ -40,7 +40,7 @@ public class BRAdd extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        int bucId = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String description = request.getParameter("description");
         String customerNeeds =  request.getParameter("customerNeeds");
@@ -57,6 +57,7 @@ public class BRAdd extends HttpServlet {
         br.setCustomerNeeds(customerNeeds);
         br.setDescription(description);
         br.setStatusId(status);
+        br.setBucId(bucId);
         
         businessRequirementsDAO.insert(br);
         
@@ -71,7 +72,7 @@ public class BRAdd extends HttpServlet {
         }
        */ 
       
-       response.sendRedirect("/rastreabilityMatrixICC/buc?id="+request.getParameter("id")); 
+       response.sendRedirect("/rastreabilityMatrixICC/buc?id="+bucId); 
     }
 
 

@@ -23,10 +23,10 @@ public class TestCasesDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO TEST_CASES (name,full_path,employees_signum,status,test_type) values (?,?,?,?,?)");
+            stmt = conn.prepareStatement("INSERT INTO TEST_CASES (name,full_path,team_Id,status,test_type) values (?,?,?,?,?)");
             stmt.setString(1, testCase.getName());
             stmt.setString(2, testCase.getFullPath());
-            stmt.setString(3, testCase.getEmployeesSignum());
+            stmt.setInt(3, testCase.getTeamId());
             stmt.setInt(4, testCase.getStatusId());
             stmt.setInt(5, testCase.getTestTypeId());
             stmt.executeUpdate();
@@ -57,10 +57,10 @@ public class TestCasesDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("UPDATE TEST_CASES SET name=?, full_path=?, employees_signum=?, status_id=?, test_type_id=? WHERE id=?");
+            stmt = conn.prepareStatement("UPDATE TEST_CASES SET name=?, full_path=?, team_id=?, status_id=?, test_type_id=? WHERE id=?");
             stmt.setString(1, testCases.getName());
             stmt.setString(2, testCases.getFullPath());
-            stmt.setString(3, testCases.getEmployeesSignum());
+            stmt.setInt(3, testCases.getTeamId());
             stmt.setInt(4, testCases.getStatusId());
             stmt.setInt(5, testCases.getTestTypeId());           
             stmt.setInt(6, testCases.getId());           
@@ -87,7 +87,7 @@ public class TestCasesDAO {
                 testCases.setId(rs.getInt("ID"));
                 testCases.setName(rs.getString("NAME"));
                 testCases.setFullPath(rs.getString("FULL_PATH"));
-                testCases.setEmployeesSignum(rs.getString("EMPLOYEES_SIGNUM"));
+                testCases.setTeamId(rs.getInt("TEAM_ID"));
                 testCases.setStatusId(rs.getInt("STATUS_ID"));
                 testCases.setTestTypeId(rs.getInt("TEST_TYPE_ID"));
                 

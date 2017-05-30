@@ -76,6 +76,10 @@
         <servlet-name>TRAdd</servlet-name>
         <servlet-class>Servlet.TRAdd</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TCAdd</servlet-name>
+        <servlet-class>Servlet.TCAdd</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MemberAdd</servlet-name>
         <url-pattern>/member/add</url-pattern>
@@ -151,6 +155,10 @@
     <servlet-mapping>
         <servlet-name>TRAdd</servlet-name>
         <url-pattern>/technicalRequirement/add</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TCAdd</servlet-name>
+        <url-pattern>/testcase/add</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

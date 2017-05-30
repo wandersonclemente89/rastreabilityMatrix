@@ -23,12 +23,13 @@ public class BusinessRequirementsDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO BUSINESS_REQUIREMENTS (name,description,customer_needs,comments,status_id) values (?,?,?,?,?)");
+            stmt = conn.prepareStatement("INSERT INTO BUSINESS_REQUIREMENTS (name,description,customer_needs,comments,status_id,buc_id) values (?,?,?,?,?,?)");
             stmt.setString(1, businessRequirements.getName());
             stmt.setString(2, businessRequirements.getDescription());
             stmt.setString(3, businessRequirements.getCustomerNeeds());
             stmt.setString(4, businessRequirements.getComments());
             stmt.setInt(5, businessRequirements.getStatusId());
+            stmt.setInt(6, businessRequirements.getBucId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -57,13 +58,14 @@ public class BusinessRequirementsDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("UPDATE BUSINESS_REQUIREMENTS SET name=?, description=?, comments=?, customer_needs=?, status_id=? WHERE id=?");
+            stmt = conn.prepareStatement("UPDATE BUSINESS_REQUIREMENTS SET name=?, description=?, comments=?, customer_needs=?, status_id=? buc_id=? WHERE id=?");
             stmt.setString(1, businessRequirements.getName());
             stmt.setString(2, businessRequirements.getDescription());
             stmt.setString(3, businessRequirements.getComments());
             stmt.setString(4, businessRequirements.getCustomerNeeds());
             stmt.setInt(5, businessRequirements.getStatusId());
-            stmt.setInt(6, businessRequirements.getId());
+            stmt.setInt(6, businessRequirements.getBucId());
+            stmt.setInt(7, businessRequirements.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -90,7 +92,7 @@ public class BusinessRequirementsDAO {
                 businessRequirements.setCustomerNeeds(rs.getString("CUSTOMER_NEEDS"));
                 businessRequirements.setComments(rs.getString("COMMENTS"));
                 businessRequirements.setStatusId(rs.getInt("STATUS_ID"));
-                
+                businessRequirements.setBucId(rs.getInt("BUC_ID"));
                 BusinessRequirementList.add(businessRequirements);
             }
         } catch (SQLException ex) {

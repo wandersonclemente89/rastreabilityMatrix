@@ -13,14 +13,19 @@ public class TestCases {
     private int id;
     private String name;
     private String fullPath;
-    private String employeesSignum;
+    private int teamId;
     private int statusId;
     private int testTypeId;
 
-    public String getEmployeesSignum() {
-        return employeesSignum;
+    public int getTeamId() {
+        return teamId;
     }
 
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
+    }
+
+  
     public String getFullPath() {
         return fullPath;
     }
@@ -41,9 +46,7 @@ public class TestCases {
         return testTypeId;
     }
 
-    public void setEmployeesSignum(String employeesSignum) {
-        this.employeesSignum = employeesSignum;
-    }
+   
 
     public void setFullPath(String fullPath) {
         this.fullPath = fullPath;

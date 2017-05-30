@@ -1,7 +1,7 @@
 <table id="tcTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th>Id - wefwef</th>
+            <th>Id</th>
             <th>Name</th>
             <th>Full Path</th>
             <th>Owner</th>
@@ -46,7 +46,7 @@
                 <h4 class="modal-title" id="myModalLabel">Add Test Case</h4>
             </div>
             <div class="modal-body">
-                <form method="post">
+                <form method="post" action="/rastreabilityMatrixICC/testcase/add">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
                         <input class="form-control" name="name" placeholder="Enter name" required>
@@ -57,9 +57,9 @@
                     </div>
                     <div class="form-group">
                         <label for="project">Owner</label>
-                        <select name="members" class="selectpicker form-control" >
-                            <c:forEach items="${members}" var="member">
-                                <option value="${member.signum}">${member.name}</option>
+                        <select name="owner" class="selectpicker form-control" >
+                            <c:forEach items="${teams}" var="team">
+                                <option value="${team.id}">${team.name}</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -79,12 +79,21 @@
                             </c:forEach>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="project">Technical Requirement</label>
+                        <select name="technicalRequirement" class="selectpicker form-control" >
+                            <c:forEach items="${technicalRequirements}" var="technicalRequirement">
+                                <option value="${technicalRequirement.id}">${technicalRequirement.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            
         </div>
     </div>
 </div>

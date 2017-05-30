@@ -38,19 +38,13 @@ public class TRAdd extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       // int id = Integer.parseInt(request.getParameter("id"));
-       // BUCDAO bucDAO = new BUCDAO();
-       // BUC buc = bucDAO.getById(id);
-       
-        
-        
     }
 
         
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String name = request.getParameter("name");
+        String name = request.getParameter("name");
         String description = request.getParameter("description");
         String comments = request.getParameter("comments");
         int businessRequirementID = Integer.parseInt(request.getParameter("businessRequirements"));

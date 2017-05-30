@@ -16,7 +16,17 @@ public class BusinessRequirements {
     private String customerNeeds;
     private String comments;
     private int statusId;
+    private int bucId;
 
+    public int getBucId() {
+        return bucId;
+    }
+
+    public void setBucId(int bucId) {
+        this.bucId = bucId;
+    }
+    
+    
     public String getComments() {
         return comments;
     }
