@@ -17,7 +17,7 @@
             <td>${technicalRequirement.name}</td>
             <td>${technicalRequirement.description}</td>
             <td>${technicalRequirement.comments}</td>
-            <td>${technicalRequirement.BusinessRequirementId}</td>
+            <td>${technicalRequirement.businessRequirementId}</td>
             <td>${technicalRequirement.statusId}</td>
             <td>
 

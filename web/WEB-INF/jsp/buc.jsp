@@ -57,12 +57,12 @@
                                     <%@ include file="/templates/brContentTab.jsp" %>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="profile">
+                            <div role="tabpanel2" class="tab-pane" id="profile">
                                 <div class="content-tab">
                                     <%@ include file="/templates/trContentTab.jsp"  %>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="messages">
+                            <div role="tabpane3" class="tab-pane" id="messages">
                                 <div class="content-tab">
                                     <%@ include file="/templates/tcContentTab.jsp" %>
                                 </div>

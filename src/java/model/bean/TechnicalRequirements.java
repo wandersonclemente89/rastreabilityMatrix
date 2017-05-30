@@ -14,11 +14,11 @@ public class TechnicalRequirements {
     private String name;
     private String description;
     private String comments;
-    private int BusinessRequirementId;
+    private int businessRequirementId;
     private int statusId;
 
     public int getBusinessRequirementId() {
-        return BusinessRequirementId;
+        return businessRequirementId;
     }
 
     public String getComments() {
@@ -42,7 +42,7 @@ public class TechnicalRequirements {
     }
 
     public void setBusinessRequirementId(int BusinessRequirementId) {
-        this.BusinessRequirementId = BusinessRequirementId;
+        this.businessRequirementId = BusinessRequirementId;
     }
 
     public void setComments(String comments) {

@@ -78,7 +78,7 @@ public class TRAdd extends HttpServlet {
             brHasEmployeesDAO.insert(brHasEmployees);
         }
         */
-        //doGet(request, response);
+     
        response.sendRedirect("/rastreabilityMatrixICC/buc?id="+request.getParameter("id")); 
     }
 

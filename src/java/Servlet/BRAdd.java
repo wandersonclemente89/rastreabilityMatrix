@@ -60,7 +60,7 @@ public class BRAdd extends HttpServlet {
         
         businessRequirementsDAO.insert(br);
         
-        for (int i=0;members!=null && i <members.length;i++){
+     /*   for (int i=0;members!=null && i <members.length;i++){
             BusinessRequirementsHasEmployees brHasEmployees = new BusinessRequirementsHasEmployees();
             BusinessRequirementsHasEmployeesDAO brHasEmployeesDAO = new BusinessRequirementsHasEmployeesDAO();
            
@@ -69,9 +69,8 @@ public class BRAdd extends HttpServlet {
             
             brHasEmployeesDAO.insert(brHasEmployees);
         }
-        
-       // int id = Integer.parseInt(request.getParameter("id"));
-        //doGet(request, response);
+       */ 
+      
        response.sendRedirect("/rastreabilityMatrixICC/buc?id="+request.getParameter("id")); 
     }
 
