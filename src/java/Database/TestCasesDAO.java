@@ -23,7 +23,7 @@ public class TestCasesDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO TEST_CASES (name,full_path,team_Id,status,test_type) values (?,?,?,?,?)");
+            stmt = conn.prepareStatement("INSERT INTO TEST_CASES (name,full_path,team_Id,status_id,test_type_id) values (?,?,?,?,?)");
             stmt.setString(1, testCase.getName());
             stmt.setString(2, testCase.getFullPath());
             stmt.setInt(3, testCase.getTeamId());

@@ -4,7 +4,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Full Path</th>
-            <th>Owner</th>
+            <th>Team</th>
             <th>Test type</th>
             <th>Status</th>
             <th>Action</th>
@@ -16,7 +16,8 @@
             <td>${testCase.id}</td>
             <td>${testCase.name}</td>
             <td>${testCase.fullPath}</td>
-            <td>${testCase.employeesSignum}</td>
+            <td>${testCase.teamId}</td>
+            <td>${testCase.statusId}</td>
             <td>${testCase.testTypeId}</td>
             <td>
 
@@ -56,7 +57,7 @@
                         <input class="form-control" name="fullPath" placeholder="Enter the full path of the test case" required>
                     </div>
                     <div class="form-group">
-                        <label for="project">Owner</label>
+                        <label for="project">Team</label>
                         <select name="owner" class="selectpicker form-control" >
                             <c:forEach items="${teams}" var="team">
                                 <option value="${team.id}">${team.name}</option>
@@ -87,6 +88,7 @@
                             </c:forEach>
                         </select>
                     </div>
+                            <input value="${BUC.id}" type="hidden"  name="id"/>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Save changes</button>

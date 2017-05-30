@@ -5,6 +5,7 @@ import Database.BUCDAO;
 import Database.BusinessRequirementsDAO;
 import Database.EmployeesDAO;
 import Database.StatusDAO;
+import Database.TeamDAO;
 import Database.TechnicalRequirementsDAO;
 import Database.TestCasesDAO;
 import Database.TestTypeDAO;
@@ -19,6 +20,7 @@ import model.bean.BUC;
 import model.bean.BusinessRequirements;
 import model.bean.Employees;
 import model.bean.Status;
+import model.bean.Team;
 import model.bean.TechnicalRequirements;
 import model.bean.TestCases;
 import model.bean.TestType;
@@ -58,6 +60,9 @@ public class Buc extends HttpServlet {
         EmployeesDAO employeesDAO = new EmployeesDAO();
         List<Employees> employees = employeesDAO.read();
         
+        TeamDAO teamDAO = new TeamDAO();
+        List<Team> teams = teamDAO.read();
+        
         TestCasesDAO tcdao = new TestCasesDAO();
         List<TestCases> testCases = tcdao.read();
         
@@ -68,6 +73,7 @@ public class Buc extends HttpServlet {
         request.setAttribute("testTypes", testTypes);
         request.setAttribute("statuses", statuses);
         request.setAttribute("BUC", buc);
+        request.setAttribute("teams", teams);
         
         String jsp = "/WEB-INF/jsp/buc.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(jsp);

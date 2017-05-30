@@ -22,6 +22,13 @@ public class TCAdd extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+         
+ 
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         String name = request.getParameter("name");
         String fullPath = request.getParameter("fullPath");
         int owner = Integer.parseInt(request.getParameter("owner"));
@@ -46,13 +53,6 @@ public class TCAdd extends HttpServlet {
         tcdao.insert(tc);
        
         
-        
- 
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-  
+        response.sendRedirect("/rastreabilityMatrixICC/buc?id="+request.getParameter("id"));
     }
 }
