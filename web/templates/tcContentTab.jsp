@@ -82,7 +82,7 @@
                     </div>
                     <div class="form-group">
                         <label for="project">Technical Requirement</label>
-                        <select name="technicalRequirement" class="selectpicker form-control" >
+                        <select name="technicalRequirement" class="selectpicker form-control" multiple required>
                             <c:forEach items="${technicalRequirements}" var="technicalRequirement">
                                 <option value="${technicalRequirement.id}">${technicalRequirement.name}</option>
                             </c:forEach>

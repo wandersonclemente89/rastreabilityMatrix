@@ -101,4 +101,23 @@ public class TestCasesDAO {
         
         return testCaseList;
     }
+    
+    public int getIDbyName(String tcName){
+        Connection conn = ConnectionDb.getConnection();
+        ResultSet rs =null;
+        int sprintId = -1;
+        PreparedStatement stmt = null;
+        try {         
+            stmt = conn.prepareStatement("SELECT * FROM test_cases WHERE NAME=?");
+            stmt.setString(1, tcName);
+            rs = stmt.executeQuery();
+            while (rs.next())
+                sprintId = rs.getInt("id");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn,stmt);
+        }
+        return sprintId;
+    }
 }

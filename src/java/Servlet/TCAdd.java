@@ -5,12 +5,14 @@
  */
 package Servlet;
 
+import Database.TechnicalRequirementsHasTestCasesDAO;
 import Database.TestCasesDAO;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.bean.TechnicalRequirementsHasTestCases;
 import model.bean.TestCases;
 
 /**
@@ -35,11 +37,7 @@ public class TCAdd extends HttpServlet {
         int testType = Integer.parseInt(request.getParameter("testType"));
         int statusID = Integer.parseInt(request.getParameter("status"));
         String [] technicalRequirement = request.getParameterValues("technicalRequirement");
-        int [] technicalRequirementIds = new int [technicalRequirement.length];
-        
-        for(int i=0; i<technicalRequirement.length; i++){
-                technicalRequirementIds[i] = Integer.parseInt(technicalRequirement[i]);
-        }
+       
         
         TestCasesDAO tcdao = new TestCasesDAO();
         TestCases tc =  new TestCases();
@@ -51,7 +49,19 @@ public class TCAdd extends HttpServlet {
         tc.setTeamId(owner);
         
         tcdao.insert(tc);
-       
+        
+        
+        
+        for (int i=0;technicalRequirement!=null && i <technicalRequirement.length;i++){
+          TechnicalRequirementsHasTestCasesDAO technicalRequirementsHasTestCasesDAO = new TechnicalRequirementsHasTestCasesDAO();
+          TechnicalRequirementsHasTestCases technicalRequirementsHasTestCases = new TechnicalRequirementsHasTestCases();
+        
+            technicalRequirementsHasTestCases.setTRId(Integer.parseInt(technicalRequirement[i]));
+            technicalRequirementsHasTestCases.setTestCaseId(tcdao.getIDbyName(name));
+                      
+            technicalRequirementsHasTestCasesDAO.insert(technicalRequirementsHasTestCases);
+        }
+            
         
         response.sendRedirect("/rastreabilityMatrixICC/buc?id="+request.getParameter("id"));
     }
