@@ -76,7 +76,7 @@ public class MemberUpdate extends HttpServlet {
        
        employeesDAO.update(employees);
        
-        response.sendRedirect("list");   
+       response.sendRedirect("list");   
     }
 
 
