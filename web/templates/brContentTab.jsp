@@ -23,7 +23,7 @@
                 <button type="button" class="btn btn-default" aria-label="Left Align">
                     <span class="glyphicon glyphicon-pencil"/>
                 </button>
-                <a href="<c:url value="/team/delete?id=${businessRequirement.id}"/>">
+                <a href="<c:url value="/br/delete?id=${businessRequirement.id}"/>">
                    <button type="button" class="btn btn-danger" aria-label="Left Align">
                         <span class="glyphicon glyphicon glyphicon-trash"/>
                     </button>
