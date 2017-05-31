@@ -9,16 +9,12 @@ import Database.BusinessRequirementsDAO;
 import Database.BusinessRequirementsHasEmployeesDAO;
 import Database.EmployeesDAO;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.bean.BusinessRequirements;
 import model.bean.BusinessRequirementsHasEmployees;
-import model.bean.Employees;
 
 /**
  *
@@ -61,16 +57,16 @@ public class BRAdd extends HttpServlet {
         
         businessRequirementsDAO.insert(br);
         
-     /*   for (int i=0;members!=null && i <members.length;i++){
+        for (int i=0;members!=null && i <members.length;i++){
             BusinessRequirementsHasEmployees brHasEmployees = new BusinessRequirementsHasEmployees();
             BusinessRequirementsHasEmployeesDAO brHasEmployeesDAO = new BusinessRequirementsHasEmployeesDAO();
            
             brHasEmployees.setBRId(businessRequirementsDAO.getIDbyName(name));
-            brHasEmployees.setEmployeesSignum(employeesDAO.getSignumbyName(members[i]));
+            brHasEmployees.setEmployeesSignum(members[i]);
             
             brHasEmployeesDAO.insert(brHasEmployees);
         }
-       */ 
+        
       
        response.sendRedirect("/rastreabilityMatrixICC/buc?id="+bucId); 
     }
