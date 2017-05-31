@@ -43,7 +43,7 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class=""><h3>BUC: FT33-4<h3></div>
+                                    <div class=""><h3>${BUC.name}<h3></div>
                                                 <div><h4>80% Covered</h4></div>
                                 </div>
                             </div>
@@ -66,11 +66,13 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="list-group">
-                                     US 1
+                             <c:forEach items="${businessRequirements}" var="businessRequirement">
+                                <div class="list-group">
+                                     ${businessRequirement.name}
                                     </span>
-                              
-                            </div>
+                                </div>
+                                 
+                            </c:forEach>
                         </div>
                         <!-- /.panel-body -->
                     </div>

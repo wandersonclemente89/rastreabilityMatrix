@@ -44,9 +44,11 @@
                             <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Business Requirements</a></li>
                             <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Technical Requirements</a></li>
                             <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Test Cases</a></li>
+                            <a href="<c:url value="/report?bucId=${BUC.id}"/>">
                             <button type="button" class="btn btn-primary generate-report" >
                                 Generate Report
                             </button>
+                            </a>
                         </ul>
 
 
