@@ -137,6 +137,32 @@ public class TeamDAO {
         return teamId;
     }
     
-    
+   public List<Team> getTeamsByBuc(int bucId){
+        Connection conn = ConnectionDb.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Team> teamList = new ArrayList<>();
+        
+        try {
+            stmt = conn.prepareStatement("SELECT T.ID , T.NAME, T.PROJECT FROM BUC as B inner join team_has_buc as TB on B.ID = TB.BUC_ID inner join team as T on TB.TEAM_ID = T.ID where B.id = ?");
+            stmt.setInt(1, bucId);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Team team = new Team();
+                team.setId(rs.getInt("ID"));
+                team.setName(rs.getString("NAME"));
+                team.setProject(rs.getString("PROJECT"));
+                
+                teamList.add(team);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn, stmt,rs);
+        }
+        
+        return teamList;
+    } 
     
 }

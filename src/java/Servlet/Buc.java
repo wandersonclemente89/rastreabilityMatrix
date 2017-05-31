@@ -58,10 +58,19 @@ public class Buc extends HttpServlet {
         List<Status> statuses = statusDAO.read();
         
         EmployeesDAO employeesDAO = new EmployeesDAO();
-        List<Employees> employees = employeesDAO.read();
+        List<Employees> employees = null;
         
         TeamDAO teamDAO = new TeamDAO();
-        List<Team> teams = teamDAO.read();
+        List<Team> teams = null;
+        
+        
+        if (buc != null) { 
+            employees = employeesDAO.getEmployeeListByBuc(id);
+            teams = teamDAO.getTeamsByBuc(id);
+        } else {
+            employees = employeesDAO.read();
+            teams = teamDAO.read();
+        }
         
         TestCasesDAO tcdao = new TestCasesDAO();
         List<TestCases> testCases = tcdao.read();

@@ -166,4 +166,31 @@ public class EmployeesDAO {
         }
         return signum;
     }
+    public List<Employees> getEmployeeListByBuc(int bucId){
+        Connection conn = ConnectionDb.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Employees> employeesList = new ArrayList<>();
+        
+        try {
+            stmt = conn.prepareStatement("SELECT E.SIGNUM, E.NAME, E.ROLE FROM employees as E inner join team as T on E.TEAM_ID = T.ID inner join team_has_buc as TB on T.ID = TB.TEAM_ID inner join buc as B on B.ID = TB.BUC_ID where B.ID = ?");
+            stmt.setInt(1, bucId);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Employees employees = new Employees();
+                employees.setSignum(rs.getString("SIGNUM"));
+                employees.setName(rs.getString("NAME"));
+                employees.setRole(rs.getString("ROLE"));
+      
+                employeesList.add(employees);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn, stmt,rs);
+        }
+        
+        return employeesList;
+    }
 }
