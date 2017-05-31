@@ -17,8 +17,8 @@
             <td>${technicalRequirement.name}</td>
             <td>${technicalRequirement.description}</td>
             <td>${technicalRequirement.comments}</td>
-            <td>${technicalRequirement.businessRequirementId}</td>
-            <td>${technicalRequirement.statusId}</td>
+            <td>${technicalRequirement.brName}</td>
+            <td>${technicalRequirement.statusName}</td>
             <td>
 
                 <button type="button" class="btn btn-default" aria-label="Left Align">

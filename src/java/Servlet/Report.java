@@ -29,7 +29,13 @@ public class Report extends HttpServlet {
         BUC buc = bucdao.getById(bucId);
         
         BusinessRequirementsDAO brdao = new BusinessRequirementsDAO();
-        List<BusinessRequirements> businessRequirements = brdao.read();
+        List<BusinessRequirements> businessRequirements = null;
+        
+        if(buc!=null){
+            businessRequirements = brdao.getALLBRByBuc(bucId);
+        }else {
+            businessRequirements = brdao.read();
+        }
         
         request.setAttribute("BUC", buc);
         request.setAttribute("businessRequirements", businessRequirements);

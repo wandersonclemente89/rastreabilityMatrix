@@ -18,7 +18,7 @@
             <td>${businessRequirement.description}</td>
             <td>${businessRequirement.customerNeeds}</td>
             <td>${businessRequirement.comments}</td>
-            <td>${businessRequirement.statusId}</td>
+            <td>${businessRequirement.statusName}</td>
             <td>
                 <button type="button" class="btn btn-default" aria-label="Left Align">
                     <span class="glyphicon glyphicon-pencil"/>

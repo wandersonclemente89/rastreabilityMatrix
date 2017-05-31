@@ -4,6 +4,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Full Path</th>
+            <th>Technical Requirement</th>
             <th>Team</th>
             <th>Test type</th>
             <th>Status</th>
@@ -16,9 +17,10 @@
             <td>${testCase.id}</td>
             <td>${testCase.name}</td>
             <td>${testCase.fullPath}</td>
-            <td>${testCase.teamId}</td>
-            <td>${testCase.statusId}</td>
-            <td>${testCase.testTypeId}</td>
+            <td>${testCase.tRName}</td>
+            <td>${testCase.teamName}</td>
+            <td>${testCase.testTypeName}</td>
+            <td>${testCase.statusName}</td>
             <td>
 
                 <button type="button" class="btn btn-default" aria-label="Left Align">

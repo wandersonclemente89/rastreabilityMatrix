@@ -16,7 +16,43 @@ public class TestCases {
     private int teamId;
     private int statusId;
     private int testTypeId;
+    private String statusName;
+    private String teamName;
+    private String testTypeName;
+    private String tRName;
 
+    public String getStatusName() {
+        return statusName;
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public String getTestTypeName() {
+        return testTypeName;
+    }
+
+    public void setStatusName(String statusName) {
+        this.statusName = statusName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
+    public String gettRName() {
+        return tRName;
+    }
+
+    public void setTestTypeName(String testTypeName) {
+        this.testTypeName = testTypeName;
+    }
+
+    public void settRName(String tRName) {
+        this.tRName = tRName;
+    }
+    
     public int getTeamId() {
         return teamId;
     }

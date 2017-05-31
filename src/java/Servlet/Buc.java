@@ -46,16 +46,19 @@ public class Buc extends HttpServlet {
         BUC buc = bucDAO.getById(id);
         
         BusinessRequirementsDAO brdao = new BusinessRequirementsDAO();
-        List<BusinessRequirements> businessRequirements = brdao.read();
+        List<BusinessRequirements> businessRequirements = null;
         
         TechnicalRequirementsDAO trdao = new TechnicalRequirementsDAO();
-        List<TechnicalRequirements> technicalRequirements =  trdao.read();
+        List<TechnicalRequirements> technicalRequirements =  null;
         
         TestTypeDAO testTypeDAO = new TestTypeDAO();
         List<TestType> testTypes = testTypeDAO.read();
         
         StatusDAO statusDAO = new StatusDAO();
         List<Status> statuses = statusDAO.read();
+        
+        TestCasesDAO tcdao = new TestCasesDAO();
+        List<TestCases> testCases = null;
         
         EmployeesDAO employeesDAO = new EmployeesDAO();
         List<Employees> employees = null;
@@ -67,14 +70,18 @@ public class Buc extends HttpServlet {
         if (buc != null) { 
             employees = employeesDAO.getEmployeeListByBuc(id);
             teams = teamDAO.getTeamsByBuc(id);
+            technicalRequirements = trdao.getAllTRByBuc(id);
+            businessRequirements = brdao.getALLBRByBuc(id);
+            testCases = tcdao.getALLTCByBuc(id);
         } else {
             employees = employeesDAO.read();
             teams = teamDAO.read();
+            technicalRequirements = trdao.read();
+            businessRequirements = brdao.read();
+            testCases = tcdao.read();
         }
         
-        TestCasesDAO tcdao = new TestCasesDAO();
-        List<TestCases> testCases = tcdao.read();
-        
+              
         request.setAttribute("businessRequirements", businessRequirements);
         request.setAttribute("technicalRequirements", technicalRequirements);
         request.setAttribute("testCases", testCases);

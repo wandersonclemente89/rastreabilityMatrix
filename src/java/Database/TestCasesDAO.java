@@ -101,6 +101,37 @@ public class TestCasesDAO {
         
         return testCaseList;
     }
+    public List<TestCases> getALLTCByBuc(int bucId){
+        Connection conn = ConnectionDb.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<TestCases> testCaseList = new ArrayList<>();
+        
+        try {
+            stmt = conn.prepareStatement("select TC.ID, TC.NAME, TC.FULL_PATH, S.NAME as SNAME, TT.NAME as TTNAME, T.NAME as TNAME, TR.NAME as TRNAME from test_cases as TC inner join technical_requirements_has_test_cases as TRHASTC on TC.ID = TRHASTC.TEST_CASES_ID inner join technical_requirements as TR on TR.ID = TRHASTC.TECHNICAL_REQUIREMENTS_ID join business_requirements as BR on TR.BUSINESS_REQUIREMENTS_ID = BR.ID inner join BUC as B on B.ID = BR.buc_ID inner join status as S on S.ID = TC.STATUS_ID inner join test_type as TT on TC.TEST_TYPE_ID = TT.ID inner join team as T on T.ID = TC.team_ID where B.ID=?");
+            stmt.setInt(1, bucId);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                TestCases testCases = new TestCases();
+                testCases.setId(rs.getInt("ID"));
+                testCases.setName(rs.getString("NAME"));
+                testCases.setFullPath(rs.getString("FULL_PATH"));
+                testCases.setTeamName(rs.getString("TNAME"));
+                testCases.setStatusName(rs.getString("SNAME"));
+                testCases.setTestTypeName(rs.getString("TTNAME"));
+                testCases.settRName(rs.getString("TRNAME"));
+                
+                testCaseList.add(testCases);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn, stmt,rs);
+        }
+        
+        return testCaseList;
+    }
     
     public int getIDbyName(String tcName){
         Connection conn = ConnectionDb.getConnection();

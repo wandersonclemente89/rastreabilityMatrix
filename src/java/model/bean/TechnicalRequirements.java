@@ -16,6 +16,25 @@ public class TechnicalRequirements {
     private String comments;
     private int businessRequirementId;
     private int statusId;
+    private String brName;
+    private String statusName;
+
+    public String getBrName() {
+        return brName;
+    }
+
+    public String getStatusName() {
+        return statusName;
+    }
+
+    public void setBrName(String brName) {
+        this.brName = brName;
+    }
+
+    public void setStatusName(String statusName) {
+        this.statusName = statusName;
+    }
+    
 
     public int getBusinessRequirementId() {
         return businessRequirementId;

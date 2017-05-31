@@ -17,6 +17,17 @@ public class BusinessRequirements {
     private String comments;
     private int statusId;
     private int bucId;
+    private String statusName;
+
+    public String getStatusName() {
+        return statusName;
+    }
+
+    public void setStatusName(String statusName) {
+        this.statusName = statusName;
+    }
+    
+    
 
     public int getBucId() {
         return bucId;

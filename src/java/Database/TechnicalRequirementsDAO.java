@@ -101,4 +101,36 @@ public class TechnicalRequirementsDAO {
         
         return technicalRequirementList;
     }
+    
+    
+    public List<TechnicalRequirements> getAllTRByBuc(int bucId){
+        Connection conn = ConnectionDb.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<TechnicalRequirements> technicalRequirementList = new ArrayList<>();
+        
+        try {
+            stmt = conn.prepareStatement("select TR.ID, TR.NAME, TR.DESCRIPTION, TR.COMMENTS, BR.NAME as BRNAME, S.NAME as SNAME from technical_requirements as TR inner join business_requirements as BR on TR.BUSINESS_REQUIREMENTS_ID = BR.ID inner join buc as B on B.ID = BR.buc_ID inner join status as S on S.ID = TR.STATUS_ID where B.ID = ?");
+            stmt.setInt(1, bucId);
+            rs = stmt.executeQuery();
+    
+            while(rs.next()){
+                TechnicalRequirements technicalRequirements = new TechnicalRequirements();
+                technicalRequirements.setId(rs.getInt("ID"));
+                technicalRequirements.setName(rs.getString("NAME"));
+                technicalRequirements.setDescription(rs.getString("DESCRIPTION"));
+                technicalRequirements.setComments(rs.getString("COMMENTS"));
+                technicalRequirements.setBrName(rs.getString("BRNAME"));
+                technicalRequirements.setStatusName(rs.getString("SNAME"));
+                
+                technicalRequirementList.add(technicalRequirements);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn, stmt,rs);
+        }
+        
+        return technicalRequirementList;
+    }
 }

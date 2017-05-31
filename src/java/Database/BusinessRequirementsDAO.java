@@ -103,6 +103,35 @@ public class BusinessRequirementsDAO {
         
         return BusinessRequirementList;
     }
+    public List<BusinessRequirements> getALLBRByBuc(int bucId){
+        Connection conn = ConnectionDb.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<BusinessRequirements> BusinessRequirementList = new ArrayList<>();
+        
+        try {
+            stmt = conn.prepareStatement("select BR.ID, BR.NAME, BR.DESCRIPTION, BR.CUSTOMER_NEEDS, BR.COMMENTS, S.NAME as SNAME from business_requirements as BR inner join buc as B on BR.buc_ID = B.ID inner join status as S on S.ID = BR.STATUS_ID where B.ID=?");
+            stmt.setInt(1, bucId);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                BusinessRequirements businessRequirements = new BusinessRequirements();
+                businessRequirements.setId(rs.getInt("ID"));
+                businessRequirements.setName(rs.getString("NAME"));
+                businessRequirements.setDescription(rs.getString("DESCRIPTION"));
+                businessRequirements.setCustomerNeeds(rs.getString("CUSTOMER_NEEDS"));
+                businessRequirements.setComments(rs.getString("COMMENTS"));
+                businessRequirements.setStatusName(rs.getString("SNAME"));
+                BusinessRequirementList.add(businessRequirements);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn, stmt,rs);
+        }
+        
+        return BusinessRequirementList;
+    }
     public int getIDbyName(String brName){
         Connection conn = ConnectionDb.getConnection();
         ResultSet rs =null;
@@ -121,4 +150,6 @@ public class BusinessRequirementsDAO {
         }
         return brID;
     }
+    
+    
 }
