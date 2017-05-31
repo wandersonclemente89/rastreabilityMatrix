@@ -63,6 +63,7 @@
                     <div class="form-group">
                         <label for="project">Business Requirement</label>
                         <select name="businessRequirements" class="selectpicker form-control" required>
+
                             <c:forEach items="${businessRequirements}" var="businessRequirement">
                                 <option value="${businessRequirement.id}">${businessRequirement.name}</option>
                             </c:forEach>
