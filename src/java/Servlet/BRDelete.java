@@ -34,13 +34,18 @@ public class BRDelete extends HttpServlet {
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         
+
+        
         BusinessRequirements br = new BusinessRequirements();
         br.setId(id);
         
+        
         BusinessRequirementsDAO brDAO = new BusinessRequirementsDAO();
+        int bucID = brDAO.getBucIDbyBRID(id);
         brDAO.delete(br);
         
-        response.sendRedirect("/rastreabilityMatrixICC/buc?id="+request.getParameter("id"));
+        response.sendRedirect("/rastreabilityMatrixICC/buc?id="+bucID);
+
     }
 
     /**

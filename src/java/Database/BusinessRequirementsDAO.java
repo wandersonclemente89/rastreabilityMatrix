@@ -150,6 +150,24 @@ public class BusinessRequirementsDAO {
         }
         return brID;
     }
+    public int getBucIDbyBRID(int brID){
+        Connection conn = ConnectionDb.getConnection();
+        ResultSet rs =null;
+        int bucID = -1;
+        PreparedStatement stmt = null;
+        try {         
+            stmt = conn.prepareStatement("SELECT buc_id FROM business_requirements WHERE ID=?");
+            stmt.setInt(1, brID);
+            rs = stmt.executeQuery();
+            while (rs.next())
+                bucID = rs.getInt("BUC_ID");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn,stmt);
+        }
+        return bucID;
+    }
     
     
 }
