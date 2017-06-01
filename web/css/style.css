@@ -56,3 +56,11 @@ td a:hover {
     padding: 20px;
 }
 
+.qt-tcs{
+    float: right;
+    border-radius: 50px;
+}
+
+.tcs-success{
+}
+

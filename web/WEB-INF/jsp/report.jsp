@@ -21,14 +21,8 @@
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
         <script type="text/javascript" src="<c:url value="/bootstrap/js/bootstrap.min.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/javascript/bootstrap-select.min.js"/>"></script>
-        <script>
-            $(document).ready(function () {
-                $('#brTable').DataTable();
-                $('#trTable').DataTable();
-                $('#tcTable').DataTable();
-            });
-        </script>
-
+        <script type="text/javascript" src="<c:url value="/javascript/chart.js"/>"></script>
+        
     </head>
     <body>
         <%@ include file="/templates/menu.jsp" %>
@@ -66,20 +60,37 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                             <c:forEach items="${businessRequirements}" var="businessRequirement">
-                                <div class="list-group">
-                                     ${businessRequirement.name}
-                                    </span>
-                                </div>
-                                 
-                            </c:forEach>
+                            <div class="panel-group " role="tablist">
+                                <c:forEach items="${businessRequirements}" var="businessRequirement">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
+                                            <h4 class="panel-title"> <a href="#collapse-${businessRequirement.id}" class="" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseListGroup1"> ${businessRequirement.name}  <span class="qt-tcs label label-success">14</span></a></h4>
+                                        </div>
+                                        <div class="panel-collapse collapse" role="tabpanel" id="collapse-${businessRequirement.id}" aria-labelledby="collapseListGroupHeading1"
+                                             aria-expanded="true">
+                                            <ul class="list-group">
+                                                <li class="list-group-item bg-danger">Bootply</li>
+                                                <li class="list-group-item">One itmus ac facilin</li>
+                                                <li class="list-group-item">Second eros</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                   
+                                </c:forEach>
+                            </div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
                         
+                        
+                    </div>
+                    <div class="col-md-6">
+                        test
+                        <canvas id="myChart" width="400" height="400"></canvas>
                     </div>
                 </div>
             </div>
         </div>
     </body>
 </html>
+<script type="text/javascript" src="<c:url value="/javascript/script.js"/>"></script>
