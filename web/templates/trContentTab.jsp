@@ -24,7 +24,7 @@
                 <button type="button" class="btn btn-default" aria-label="Left Align">
                     <span class="glyphicon glyphicon-pencil"/>
                 </button>
-                <a href="<c:url value="/team/delete?id=${sprint.id}"/>">
+                <a href="<c:url value="/tr/delete?id=${technicalRequirement.id}"/>">
                    <button type="button" class="btn btn-danger" aria-label="Left Align">
                         <span class="glyphicon glyphicon glyphicon-trash"/>
                     </button>

@@ -133,4 +133,34 @@ public class TechnicalRequirementsDAO {
         
         return technicalRequirementList;
     }
+    
+        public int getBucIDbyTRID(int trID){
+        Connection conn = ConnectionDb.getConnection();
+        ResultSet rs = null;
+        ResultSet rs2 = null;
+        int brID = -1;
+        int bucID = -1;
+        PreparedStatement stmt = null;
+        PreparedStatement stmt2 = null;
+        try { 
+            stmt = conn.prepareStatement("SELECT business_requirements_id FROM technical_requirements WHERE ID=?");
+            stmt.setInt(1, trID);
+            rs = stmt.executeQuery();
+            while (rs.next())
+                brID = rs.getInt("business_requirements_id");
+            
+            stmt2 = conn.prepareStatement("SELECT buc_id FROM business_requirements WHERE ID=?");
+            stmt2.setInt(1, brID);
+            rs2 = stmt2.executeQuery();
+            while (rs2.next())
+                bucID = rs2.getInt("BUC_ID");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn,stmt);
+            ConnectionDb.closeConnection(conn,stmt2);
+        }
+        return bucID;
+    }
+    
 }
