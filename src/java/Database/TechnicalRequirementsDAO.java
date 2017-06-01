@@ -134,7 +134,9 @@ public class TechnicalRequirementsDAO {
         return technicalRequirementList;
     }
     
-        public int getBucIDbyTRID(int trID){
+    
+    /*
+    public int getBucIDbyTRID(int trID){
         Connection conn = ConnectionDb.getConnection();
         ResultSet rs = null;
         ResultSet rs2 = null;
@@ -162,5 +164,6 @@ public class TechnicalRequirementsDAO {
         }
         return bucID;
     }
-    
+    */
+ 
 }

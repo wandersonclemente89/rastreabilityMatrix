@@ -5,7 +5,7 @@
  */
 package Servlet;
 
-import Database.TechnicalRequirementsDAO;
+import Database.TestCasesDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,14 +13,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.bean.TechnicalRequirements;
+import model.bean.TestCases;
 
 /**
  *
  * @author felipe.padua
  */
-@WebServlet(name = "TRDelete", urlPatterns = {"/tr/delete"})
-public class TRDelete extends HttpServlet {
+@WebServlet(name = "TCDelete", urlPatterns = {"/tc/delete"})
+public class TCDelete extends HttpServlet {
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -36,17 +36,18 @@ public class TRDelete extends HttpServlet {
         
         int id = Integer.parseInt(request.getParameter("id"));
         int bucID = Integer.parseInt(request.getParameter("buc_id"));
+       
+        TestCases tc = new TestCases();
+        tc.setId(id); 
         
-        TechnicalRequirements tr = new TechnicalRequirements();
-        tr.setId(id);
-        
-        
-        TechnicalRequirementsDAO trDAO = new TechnicalRequirementsDAO();
-        trDAO.delete(tr);
+        TestCasesDAO tcDAO = new TestCasesDAO();
+        tcDAO.delete(tc);
         
         response.sendRedirect("/rastreabilityMatrixICC/buc?id="+bucID);
+        
     }
 
+    
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -60,7 +61,5 @@ public class TRDelete extends HttpServlet {
             throws ServletException, IOException {
         //
     }
-
- 
 
 }
