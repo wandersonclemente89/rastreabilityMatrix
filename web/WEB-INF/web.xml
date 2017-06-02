@@ -84,6 +84,10 @@
         <servlet-name>Report</servlet-name>
         <servlet-class>Servlet.Report</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Test</servlet-name>
+        <servlet-class>Servlet.Test</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MemberAdd</servlet-name>
         <url-pattern>/member/add</url-pattern>
@@ -167,6 +171,10 @@
     <servlet-mapping>
         <servlet-name>Report</servlet-name>
         <url-pattern>/report</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Test</servlet-name>
+        <url-pattern>/test</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

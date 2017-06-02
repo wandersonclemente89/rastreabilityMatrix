@@ -29,7 +29,7 @@
         <div class="content">
             <div class="content-limit">
                 <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="<c:url value="/buc?id=${businessRequirements[0].bucId}"/>">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -100,9 +100,9 @@
                         
                         
                     </div>
-                    <div class="col-md-6">
-                        test
-                        <canvas id="myChart" width="400" height="400"></canvas>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5">
+                        <canvas id="myChart" width="200" height="200"></canvas>
                     </div>
                 </div>
             </div>
