@@ -64,7 +64,21 @@
                                 <c:forEach items="${businessRequirements}" var="businessRequirement">
                                     <div class="panel panel-default">
                                         <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
-                                            <h4 class="panel-title"> <a href="#collapse${businessRequirement.id}" class="" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseListGroup1"> ${businessRequirement.name}  <span class="qt-tcs label label-success">${businessRequirement.tcQTDE}</span></a></h4>
+                                            <h4 class="panel-title"> 
+                                                <a href="#collapse${businessRequirement.id}" class="" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseListGroup1"> ${businessRequirement.name}  
+                                                    <c:choose>
+                                                        <c:when test = "${businessRequirement.tcQTDE == 0}">
+                                                            <span class="qt-tcs label label-danger">${businessRequirement.tcQTDE}</span>
+                                                        </c:when>
+                                                        <c:when test = "${businessRequirement.tcQTDE == 1}">
+                                                            <span class="qt-tcs label label-warning">${businessRequirement.tcQTDE}</span>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <span class="qt-tcs label label-success">${businessRequirement.tcQTDE}</span>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </a>
+                                            </h4>
                                         </div>
                                         <div class="panel-collapse collapse" role="tabpanel" id="collapse${businessRequirement.id}" aria-labelledby="collapseListGroupHeading1"
                                              aria-expanded="true">
