@@ -6,9 +6,7 @@ import Database.TestCasesDAO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,9 +26,7 @@ public class Report extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int bucId = Integer.parseInt(request.getParameter("bucId"));
-        int brId = -1;
-        Map<Integer, Integer> hash = new HashMap<Integer, Integer>();
-
+        
         BUCDAO bucdao = new BUCDAO();
         BUC buc = bucdao.getById(bucId);
 
