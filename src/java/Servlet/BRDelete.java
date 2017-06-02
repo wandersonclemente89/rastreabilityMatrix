@@ -5,9 +5,8 @@
  */
 package Servlet;
 
-import Database.BusinessRequirementsDAO;
+import Database.BusinessRequirementsDAO;                        
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,13 +32,10 @@ public class BRDelete extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        
 
-        
         BusinessRequirements br = new BusinessRequirements();
         br.setId(id);
-        
-        
+      
         BusinessRequirementsDAO brDAO = new BusinessRequirementsDAO();
         int bucID = brDAO.getBucIDbyBRID(id);
         brDAO.delete(br);

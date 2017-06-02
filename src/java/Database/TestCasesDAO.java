@@ -101,6 +101,34 @@ public class TestCasesDAO {
         
         return testCaseList;
     }
+    public List<TestCases> getTCperBR(int bucId){
+        Connection conn = ConnectionDb.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<TestCases> testCaseList = new ArrayList<>();
+        
+        try {
+            stmt = conn.prepareStatement("select BR.ID as BRID, TC.NAME, BR.NAME as BRNAME from test_cases as TC inner join technical_requirements_has_test_cases as TRHTC on TC.ID = TRHTC.TEST_CASES_ID inner join technical_requirements as TR on TR.ID = TRHTC.TECHNICAL_REQUIREMENTS_ID inner join business_requirements as BR on BR.ID = TR.BUSINESS_REQUIREMENTS_ID inner join BUC as B on B.ID = BR.buc_ID where B.ID = ?");
+            stmt.setInt(1, bucId);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                TestCases testCases = new TestCases();
+                testCases.setbRId(rs.getInt("BRID"));
+                testCases.setName(rs.getString("NAME"));
+                testCases.setbRName(rs.getString("BRNAME"));
+                
+                testCaseList.add(testCases);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn, stmt,rs);
+        }
+        
+        return testCaseList;
+    }
+    
     public List<TestCases> getALLTCByBuc(int bucId){
         Connection conn = ConnectionDb.getConnection();
         PreparedStatement stmt = null;

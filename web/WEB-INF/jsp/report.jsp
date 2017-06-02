@@ -64,14 +64,16 @@
                                 <c:forEach items="${businessRequirements}" var="businessRequirement">
                                     <div class="panel panel-default">
                                         <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
-                                            <h4 class="panel-title"> <a href="#collapse-${businessRequirement.id}" class="" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseListGroup1"> ${businessRequirement.name}  <span class="qt-tcs label label-success">14</span></a></h4>
+                                            <h4 class="panel-title"> <a href="#collapse${businessRequirement.id}" class="" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseListGroup1"> ${businessRequirement.name}  <span class="qt-tcs label label-success">14</span></a></h4>
                                         </div>
-                                        <div class="panel-collapse collapse" role="tabpanel" id="collapse-${businessRequirement.id}" aria-labelledby="collapseListGroupHeading1"
+                                        <div class="panel-collapse collapse" role="tabpanel" id="collapse${businessRequirement.id}" aria-labelledby="collapseListGroupHeading1"
                                              aria-expanded="true">
                                             <ul class="list-group">
-                                                <li class="list-group-item bg-danger">Bootply</li>
-                                                <li class="list-group-item">One itmus ac facilin</li>
-                                                <li class="list-group-item">Second eros</li>
+                                                <c:forEach items="${testCases}" var="testCase">
+                                                    <c:if test = "${testCase.bRId == businessRequirement.id}">
+                                                        <li class="list-group-item bg-danger">${testCase.name}</li>
+                                                    </c:if>
+                                                </c:forEach>
                                             </ul>
                                         </div>
                                     </div>

@@ -11,6 +11,7 @@ package model.bean;
  */
 public class TestCases {
     private int id;
+    private int bRId;
     private String name;
     private String fullPath;
     private int teamId;
@@ -20,6 +21,25 @@ public class TestCases {
     private String teamName;
     private String testTypeName;
     private String tRName;
+    private String bRName;
+
+    public int getbRId() {
+        return bRId;
+    }
+
+    public void setbRId(int bRId) {
+        this.bRId = bRId;
+    }
+
+        
+    public String getbRName() {
+        return bRName;
+    }
+
+    public void setbRName(String bRName) {
+        this.bRName = bRName;
+    }
+    
 
     public String getStatusName() {
         return statusName;
