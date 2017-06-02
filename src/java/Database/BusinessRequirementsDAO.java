@@ -150,6 +150,26 @@ public class BusinessRequirementsDAO {
         }
         return brID;
     }
+    
+    public int getTCperBR(int brId){
+        Connection conn = ConnectionDb.getConnection();
+        ResultSet rs =null;
+        int brID = -1;
+        PreparedStatement stmt = null;
+        try {         
+            stmt = conn.prepareStatement("select count(*) as QTDE from test_cases as TC inner join technical_requirements_has_test_cases as TRHTC on TC.ID = TRHTC.TEST_CASES_ID inner join technical_requirements as TR on TR.ID = TRHTC.TECHNICAL_REQUIREMENTS_ID inner join business_requirements as BR on BR.ID = TR.BUSINESS_REQUIREMENTS_ID where BR.ID = ?");
+            stmt.setInt(1, brId);
+            rs = stmt.executeQuery();
+            while (rs.next())
+                brID = rs.getInt("QTDE");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn,stmt);
+        }
+        return brID;
+    }
+    
     public int getBucIDbyBRID(int brID){
         Connection conn = ConnectionDb.getConnection();
         ResultSet rs =null;

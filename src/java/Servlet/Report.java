@@ -5,7 +5,9 @@ import Database.BUCDAO;
 import Database.BusinessRequirementsDAO;
 import Database.TestCasesDAO;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +27,8 @@ public class Report extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int bucId = Integer.parseInt(request.getParameter("bucId"));
+        int brId = -1;
+        Map<Integer,Integer> hash = new HashMap <Integer,Integer>();
         
         BUCDAO bucdao = new BUCDAO();
         BUC buc = bucdao.getById(bucId);
@@ -43,9 +47,19 @@ public class Report extends HttpServlet {
             testCases = tcdao.read();
         }
         
+        for(BusinessRequirements br : businessRequirements){
+            int qtde = brdao.getTCperBR(br.getId());
+            if (qtde >= 0){
+                br.setTcQTDE(qtde);
+            }else{
+                br.setTcQTDE(0);
+            }
+        }
+        
         request.setAttribute("BUC", buc);
         request.setAttribute("businessRequirements", businessRequirements);
         request.setAttribute("testCases", testCases);
+       
         
         String jsp = "/WEB-INF/jsp/report.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(jsp);

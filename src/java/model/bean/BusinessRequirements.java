@@ -18,6 +18,16 @@ public class BusinessRequirements {
     private int statusId;
     private int bucId;
     private String statusName;
+    private int tcQTDE;
+
+    public int getTcQTDE() {
+        return tcQTDE;
+    }
+
+    public void setTcQTDE(int tcQTDE) {
+        this.tcQTDE = tcQTDE;
+    }
+    
 
     public String getStatusName() {
         return statusName;
