@@ -33,7 +33,7 @@
             <div class="content-limit">
                 <div class="row">
                 <div class="col-md-12">
-                    <div class="panel panel-green">
+                    <div id="box-percentage" class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -41,14 +41,14 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class=""><h3>${BUC.name}<h3></div>
-                                                <div><h4>80% Covered</h4></div>
+                                                <div><h4><span id="percentage"></span>% Covered</h4></div>
                                 </div>
                             </div>
                         </div>
                         <a href="<c:url value="/buc?id=${businessRequirements[0].bucId}"/>">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <span class="arrow-details"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
                         </a>
@@ -67,21 +67,28 @@
                                 <c:forEach items="${businessRequirements}" var="businessRequirement">
                                     <div class="panel panel-default">
                                         <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
-                                            <h4 class="panel-title"> 
-                                                <a href="#collapse${businessRequirement.id}" class="" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseListGroup1"> ${businessRequirement.name}  
-                                                    <c:choose>
-                                                        <c:when test = "${businessRequirement.tcQTDE == 0}">
-                                                            <span class="qt-tcs label label-danger">${businessRequirement.tcQTDE}</span>
-                                                        </c:when>
-                                                        <c:when test = "${businessRequirement.tcQTDE == 1}">
-                                                            <span class="qt-tcs label label-warning">${businessRequirement.tcQTDE}</span>
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            <span class="qt-tcs label label-success">${businessRequirement.tcQTDE}</span>
-                                                        </c:otherwise>
-                                                    </c:choose>
-                                                </a>
-                                            </h4>
+                                            <a href="#collapse${businessRequirement.id}" class="" role="button" data-toggle="collapse" aria-expanded="true" aria-controls="collapseListGroup1">
+                                                <div class="row">
+                                                    <h4 class="panel-title col-md-11"> 
+                                                        ${businessRequirement.name}  
+                                                    </h4>
+                                                    <div class="col-md-1">
+                                                        <c:choose>
+                                                            <c:when test = "${businessRequirement.tcQTDE == 0}">
+                                                                <span class="qt-tcs label label-danger">${businessRequirement.tcQTDE}</span>
+                                                            </c:when>
+                                                            <c:when test = "${businessRequirement.tcQTDE == 1}">
+                                                                <span class="qt-tcs label label-warning">${businessRequirement.tcQTDE}</span>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <span class="qt-tcs label label-success">${businessRequirement.tcQTDE}</span>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </div>
+                                                </div>
+
+
+                                            </a>
                                         </div>
                                         <div class="panel-collapse collapse" role="tabpanel" id="collapse${businessRequirement.id}" aria-labelledby="collapseListGroupHeading1"
                                              aria-expanded="true">

@@ -59,6 +59,7 @@ td a:hover {
 .qt-tcs{
     float: right;
     border-radius: 50px;
+    font-size: 14px;
 }
 
 .tcs-success{
@@ -76,4 +77,15 @@ td a:hover {
     left: 616px;
     top: 996.05px;
     display: none;
+}
+
+.legend{
+    position: absolute;
+    margin-top: 415px;
+    width: 100%;
+    float: left;
+}
+
+.arrow-details{
+    margin-left: 10px;
 }

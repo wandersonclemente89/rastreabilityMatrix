@@ -9,7 +9,14 @@ $.ajax({
     url: "http://localhost:8084/rastreabilityMatrixICC/report",
     data: {bucId: $.urlParam('bucId')}
 }).done(function (BR) {
-    initChart(BR);
+    var percentage = calcPercentage(BR);
+    if (percentage > 0.0) {
+        initChart(BR);
+    } else {
+        $("#placeholder").html('There is no info about Percentage');
+    }
+    
+    setBucCoverage(BR);
 });
 
 function initChart(br) {
@@ -18,13 +25,12 @@ function initChart(br) {
 
         /*
          * [{
-                label: "Series 0",
-                data: 1
-           }]
+         label: "Series 0",
+         data: 1
+         }]
          */
         var data = parseData(br);
-
-
+              
         var plotObj = $.plot($("#placeholder"), data, {
             series: {
                 pie: {
@@ -55,4 +61,38 @@ function parseData(br) {
         result.push({label: br[i].name, data: br[i].tcQTDE});
     }
     return result;
+}
+
+function calcPercentage(br) {
+    var brLength = br.length;
+    var brCovered = 0;
+    var result;
+
+    if (brLength == 0) {
+        result = 0;
+    } else {
+        for (var i = 0; i < brLength; i++) {
+            if (br[i].tcQTDE > 0) {
+                brCovered++;
+            }
+        }
+    }
+    
+    return (brCovered / brLength) * 100;
+}
+
+function setBucCoverage(br) {
+    var percentage = calcPercentage(br);
+    $('#percentage').html(percentage);
+    
+    if(percentage >= 0 && percentage < 80){
+        $('#box-percentage').removeClass();
+        $('#box-percentage').addClass('panel panel-red');
+    }else if(percentage >= 80 && percentage < 95){
+        $('#box-percentage').removeClass();
+        $('#box-percentage').addClass('panel panel-yellow');
+    }else{
+        $('#box-percentage').removeClass();
+        $('#box-percentage').addClass('panel panel-green');
+    }
 }
