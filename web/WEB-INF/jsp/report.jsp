@@ -22,6 +22,9 @@
         <script type="text/javascript" src="<c:url value="/bootstrap/js/bootstrap.min.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/javascript/bootstrap-select.min.js"/>"></script>
         <script type="text/javascript" src="<c:url value="/javascript/chart.js"/>"></script>
+        <script type="text/javascript" src="<c:url value="/javascript/jquery.flot.js"/>"></script>
+        <script type="text/javascript" src="<c:url value="/javascript/jquery.flot.pie.js"/>"></script>
+        <script type="text/javascript" src="<c:url value="/javascript/jquery.flot.tooltip.min.js"/>"></script>
         
     </head>
     <body>
@@ -102,7 +105,7 @@
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-5">
-                        <canvas id="myChart" width="200" height="200"></canvas>
+                        <div id="placeholder" style="height: 400px;"></div>
                     </div>
                 </div>
             </div>

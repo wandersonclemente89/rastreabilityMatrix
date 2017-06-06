@@ -64,3 +64,16 @@ td a:hover {
 .tcs-success{
 }
 
+.flotTip{
+    position: absolute;
+    background: rgb(255, 255, 255);
+    z-index: 1040;
+    padding: 0.4em 0.6em;
+    border-radius: 0.5em;
+    font-size: 0.8em;
+    border: 1px solid rgb(17, 17, 17);
+    white-space: nowrap;
+    left: 616px;
+    top: 996.05px;
+    display: none;
+}
