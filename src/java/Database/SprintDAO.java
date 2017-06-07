@@ -28,7 +28,7 @@ public class SprintDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO SPRINT (name) values (?)");
+            stmt = conn.prepareStatement("INSERT INTO sprint (name) values (?)");
             stmt.setString(1, sprint.getName());
             stmt.executeUpdate();
         } catch (SQLException ex) {
@@ -47,7 +47,7 @@ public class SprintDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("DELETE FROM SPRINT WHERE ID=?");
+            stmt = conn.prepareStatement("DELETE FROM sprint WHERE ID=?");
             stmt.setInt(1, sprint.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
@@ -68,7 +68,7 @@ public class SprintDAO {
         Sprint sprint = null;
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("SELECT * FROM SPRINT WHERE ID=?");
+            stmt = conn.prepareStatement("SELECT * FROM sprint WHERE ID=?");
             stmt.setInt(1, id);
             rs = stmt.executeQuery();
             if (rs.next()){
@@ -93,7 +93,7 @@ public class SprintDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("UPDATE SPRINT SET name=? WHERE id=?");
+            stmt = conn.prepareStatement("UPDATE sprint SET name=? WHERE id=?");
             stmt.setString(1, sprint.getName());
             stmt.setInt(2, sprint.getId());
             stmt.executeUpdate();
@@ -115,7 +115,7 @@ public class SprintDAO {
         int sprintId = -1;
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("SELECT * FROM SPRINT WHERE NAME=?");
+            stmt = conn.prepareStatement("SELECT * FROM sprint WHERE NAME=?");
             stmt.setString(1, sprintName);
             rs = stmt.executeQuery();
             while (rs.next())
@@ -139,7 +139,7 @@ public class SprintDAO {
         List<Sprint> sprintList = new ArrayList<>();
         
         try {
-            stmt = conn.prepareStatement("SELECT * FROM SPRINT");
+            stmt = conn.prepareStatement("SELECT * FROM sprint");
             rs = stmt.executeQuery();
             
             while(rs.next()){

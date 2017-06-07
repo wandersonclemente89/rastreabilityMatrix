@@ -23,7 +23,7 @@ public class TestTypeDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO TEST_TYPE (name) values (?)");
+            stmt = conn.prepareStatement("INSERT INTO test_type (name) values (?)");
             stmt.setString(1, testType.getName());
             stmt.executeUpdate();
         } catch (SQLException ex) {
@@ -38,7 +38,7 @@ public class TestTypeDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("DELETE FROM TEST_TYPE WHERE ID=?");
+            stmt = conn.prepareStatement("DELETE FROM test_type WHERE ID=?");
             stmt.setInt(1, testType.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
@@ -53,7 +53,7 @@ public class TestTypeDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("UPDATE TEST_TYPE SET name=? WHERE id=?");
+            stmt = conn.prepareStatement("UPDATE test_type SET name=? WHERE id=?");
             stmt.setString(1, testType.getName());
             stmt.setInt(2, testType.getId());           
             stmt.executeUpdate();
@@ -71,7 +71,7 @@ public class TestTypeDAO {
         List<TestType> testTypeList = new ArrayList<>();
         
         try {
-            stmt = conn.prepareStatement("SELECT * FROM TEST_TYPE");
+            stmt = conn.prepareStatement("SELECT * FROM test_type");
             rs = stmt.executeQuery();
             
             while(rs.next()){

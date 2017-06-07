@@ -23,7 +23,7 @@ public class BusinessRequirementsHasEmployeesDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO BUSINESS_REQUIREMENTS_has_EMPLOYEES (BUSINESS_REQUIREMENTS_ID,EMPLOYEES_SIGNUM) values (?,?)");
+            stmt = conn.prepareStatement("INSERT INTO business_requirements_has_employess (BUSINESS_REQUIREMENTS_ID,EMPLOYEES_SIGNUM) values (?,?)");
             stmt.setInt(1, businessRequirementsHasEmployees.getBRId());
             stmt.setString(2, businessRequirementsHasEmployees.getEmployeesSignum());
             stmt.executeUpdate();
@@ -39,7 +39,7 @@ public class BusinessRequirementsHasEmployeesDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("DELETE FROM BUSINESS_REQUIREMENTS_has_EMPLOYEES WHERE BUSINESS_REQUIREMENTS_ID=? and EMPLOYEES_SIGNUM=?");
+            stmt = conn.prepareStatement("DELETE FROM business_requirements_has_employess WHERE BUSINESS_REQUIREMENTS_ID=? and EMPLOYEES_SIGNUM=?");
             stmt.setInt(1, businessRequirementsHasEmployees.getBRId());
             stmt.setString(2, businessRequirementsHasEmployees.getEmployeesSignum());
             stmt.executeUpdate();
@@ -55,7 +55,7 @@ public class BusinessRequirementsHasEmployeesDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("UPDATE BUSINESS_REQUIREMENTS_has_EMPLOYEES SET BUSINESS_REQUIREMENTS_ID=?, EMPLOYEES_SIGNUM=? WHERE BUSINESS_REQUIREMENTS_ID=? and EMPLOYEES_SIGNUM=?");
+            stmt = conn.prepareStatement("UPDATE business_requirements_has_employess SET BUSINESS_REQUIREMENTS_ID=?, EMPLOYEES_SIGNUM=? WHERE BUSINESS_REQUIREMENTS_ID=? and EMPLOYEES_SIGNUM=?");
             stmt.setInt(1, businessRequirementsHasEmployees.getBRId());
             stmt.setString(2, businessRequirementsHasEmployees.getEmployeesSignum());
             stmt.setInt(3, businessRequirementsHasEmployees.getBRId());
@@ -75,7 +75,7 @@ public class BusinessRequirementsHasEmployeesDAO {
         List<BusinessRequirementsHasEmployees> BusinessRequirementsHasEmployeesList = new ArrayList<>();
         
         try {
-            stmt = conn.prepareStatement("SELECT * FROM BUSINESS_REQUIREMENTS_has_EMPLOYEES");
+            stmt = conn.prepareStatement("SELECT * FROM business_requirements_has_employess");
             rs = stmt.executeQuery();
             
             while(rs.next()){

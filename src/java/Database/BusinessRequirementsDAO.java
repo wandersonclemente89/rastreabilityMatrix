@@ -23,7 +23,7 @@ public class BusinessRequirementsDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO BUSINESS_REQUIREMENTS (name,description,customer_needs,comments,status_id,buc_id) values (?,?,?,?,?,?)");
+            stmt = conn.prepareStatement("INSERT INTO business_requirements (name,description,customer_needs,comments,status_id,buc_id) values (?,?,?,?,?,?)");
             stmt.setString(1, businessRequirements.getName());
             stmt.setString(2, businessRequirements.getDescription());
             stmt.setString(3, businessRequirements.getCustomerNeeds());
@@ -43,7 +43,7 @@ public class BusinessRequirementsDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("DELETE FROM BUSINESS_REQUIREMENTS WHERE ID=?");
+            stmt = conn.prepareStatement("DELETE FROM business_requirements WHERE id=?");
             stmt.setInt(1, businessRequirements.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
@@ -58,7 +58,7 @@ public class BusinessRequirementsDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("UPDATE BUSINESS_REQUIREMENTS SET name=?, description=?, comments=?, customer_needs=?, status_id=? buc_id=? WHERE id=?");
+            stmt = conn.prepareStatement("UPDATE business_requirements SET name=?, description=?, comments=?, customer_needs=?, status_id=? buc_id=? WHERE id=?");
             stmt.setString(1, businessRequirements.getName());
             stmt.setString(2, businessRequirements.getDescription());
             stmt.setString(3, businessRequirements.getComments());
@@ -86,13 +86,13 @@ public class BusinessRequirementsDAO {
             
             while(rs.next()){
                 BusinessRequirements businessRequirements = new BusinessRequirements();
-                businessRequirements.setId(rs.getInt("ID"));
-                businessRequirements.setName(rs.getString("NAME"));
-                businessRequirements.setDescription(rs.getString("DESCRIPTION"));
-                businessRequirements.setCustomerNeeds(rs.getString("CUSTOMER_NEEDS"));
-                businessRequirements.setComments(rs.getString("COMMENTS"));
-                businessRequirements.setStatusId(rs.getInt("STATUS_ID"));
-                businessRequirements.setBucId(rs.getInt("BUC_ID"));
+                businessRequirements.setId(rs.getInt("id"));
+                businessRequirements.setName(rs.getString("name"));
+                businessRequirements.setDescription(rs.getString("description"));
+                businessRequirements.setCustomerNeeds(rs.getString("customer_needs"));
+                businessRequirements.setComments(rs.getString("comments"));
+                businessRequirements.setStatusId(rs.getInt("status_id"));
+                businessRequirements.setBucId(rs.getInt("buc_id"));
                 BusinessRequirementList.add(businessRequirements);
             }
         } catch (SQLException ex) {
@@ -110,16 +110,16 @@ public class BusinessRequirementsDAO {
         List<BusinessRequirements> BusinessRequirementList = new ArrayList<>();
         
         try {
-            stmt = conn.prepareStatement("select B.ID as BUCID, BR.ID, BR.NAME, BR.DESCRIPTION, BR.CUSTOMER_NEEDS, BR.COMMENTS, S.NAME as SNAME from business_requirements as BR inner join buc as B on BR.buc_ID = B.ID inner join status as S on S.ID = BR.STATUS_ID where B.ID=?");
+            stmt = conn.prepareStatement("select B.id as BUCID, BR.id, BR.name, BR.description, BR.customer_needs, BR.comments, S.name as SNAME from business_requirements as BR inner join buc as B on BR.buc_id = B.id inner join status as S on S.id = BR.status_id where B.id=?");
             stmt.setInt(1, bucId);
             rs = stmt.executeQuery();
             
             while(rs.next()){
                 BusinessRequirements businessRequirements = new BusinessRequirements();
-                businessRequirements.setId(rs.getInt("ID"));
-                businessRequirements.setBucId(rs.getInt("BUCID"));
-                businessRequirements.setName(rs.getString("NAME"));
-                businessRequirements.setDescription(rs.getString("DESCRIPTION"));
+                businessRequirements.setId(rs.getInt("id"));
+                businessRequirements.setBucId(rs.getInt("bucid"));
+                businessRequirements.setName(rs.getString("name"));
+                businessRequirements.setDescription(rs.getString("description"));
                 businessRequirements.setCustomerNeeds(rs.getString("CUSTOMER_NEEDS"));
                 businessRequirements.setComments(rs.getString("COMMENTS"));
                 businessRequirements.setStatusName(rs.getString("SNAME"));

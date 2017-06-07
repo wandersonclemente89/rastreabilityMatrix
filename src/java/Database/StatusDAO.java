@@ -23,7 +23,7 @@ public class StatusDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO STATUS (name) values (?)");
+            stmt = conn.prepareStatement("INSERT INTO status (name) values (?)");
             stmt.setString(1, status.getName());
             stmt.executeUpdate();
         } catch (SQLException ex) {
@@ -38,7 +38,7 @@ public class StatusDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("DELETE FROM STATUS WHERE ID=?");
+            stmt = conn.prepareStatement("DELETE FROM status WHERE ID=?");
             stmt.setInt(1, status.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
@@ -53,7 +53,7 @@ public class StatusDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("UPDATE STATUS SET name=? WHERE id=?");
+            stmt = conn.prepareStatement("UPDATE status SET name=? WHERE id=?");
             stmt.setString(1, status.getName());
             stmt.setInt(2, status.getId());           
             stmt.executeUpdate();
@@ -71,7 +71,7 @@ public class StatusDAO {
         List<Status> statusList = new ArrayList<>();
         
         try {
-            stmt = conn.prepareStatement("SELECT * FROM STATUS");
+            stmt = conn.prepareStatement("SELECT * FROM status");
             rs = stmt.executeQuery();
             
             while(rs.next()){

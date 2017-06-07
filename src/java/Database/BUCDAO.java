@@ -24,7 +24,7 @@ public class BUCDAO {
 
         PreparedStatement stmt = null;
         try {
-            stmt = conn.prepareStatement("INSERT INTO BUC (name) values (?)");
+            stmt = conn.prepareStatement("INSERT INTO buc (name) values (?)");
             stmt.setString(1, buc.getName());
             stmt.executeUpdate();
         } catch (SQLException ex) {
@@ -39,7 +39,7 @@ public class BUCDAO {
 
         PreparedStatement stmt = null;
         try {
-            stmt = conn.prepareStatement("DELETE FROM BUC WHERE ID=?");
+            stmt = conn.prepareStatement("DELETE FROM buc WHERE id=?");
             stmt.setInt(1, buc.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
@@ -55,7 +55,7 @@ public class BUCDAO {
         int bucId = -1;
         PreparedStatement stmt = null;
         try {
-            stmt = conn.prepareStatement("SELECT * FROM BUC WHERE NAME=?");
+            stmt = conn.prepareStatement("SELECT * FROM buc WHERE name=?");
             stmt.setString(1, bucName);
             rs = stmt.executeQuery();
             while (rs.next()) {
@@ -75,7 +75,7 @@ public class BUCDAO {
         BUC buc = new BUC();
         PreparedStatement stmt = null;
         try {
-            stmt = conn.prepareStatement("SELECT * FROM BUC WHERE ID=?");
+            stmt = conn.prepareStatement("SELECT * FROM buc WHERE id=?");
             stmt.setInt(1, id);
             rs = stmt.executeQuery();
             if (rs.next()) {
@@ -95,7 +95,7 @@ public class BUCDAO {
 
         PreparedStatement stmt = null;
         try {
-            stmt = conn.prepareStatement("UPDATE BUC SET name=? WHERE id=?");
+            stmt = conn.prepareStatement("UPDATE buc SET name=? WHERE id=?");
             stmt.setString(1, buc.getName());
             stmt.setInt(2, buc.getId());
             stmt.executeUpdate();
@@ -118,8 +118,8 @@ public class BUCDAO {
 
             while (rs.next()) {
                 BUC buc = new BUC();
-                buc.setId(rs.getInt("ID"));
-                buc.setName(rs.getString("NAME"));
+                buc.setId(rs.getInt("id"));
+                buc.setName(rs.getString("name"));
 
                 bucList.add(buc);
             }
@@ -139,16 +139,16 @@ public class BUCDAO {
         List<BUC> bucList = new ArrayList<>();
 
         try {
-            stmt = conn.prepareStatement("SELECT *, rm_db.buc.NAME as bucName FROM rm_db.buc "
-                    + "join rm_db.team_has_buc on  rm_db.buc.ID = rm_db.team_has_buc.BUC_ID "
-                    + "join rm_db.team on rm_db.team.ID = rm_db.team_has_buc.TEAM_ID "
-                    + "where rm_db.team.ID = ?;");
+            stmt = conn.prepareStatement("SELECT *, rm_db.buc.name as bucName FROM rm_db.buc "
+                    + "join rm_db.team_has_buc on  rm_db.buc.id = rm_db.team_has_buc.buc_id "
+                    + "join rm_db.team on rm_db.team.id = rm_db.team_has_buc.team_id "
+                    + "where rm_db.team.id = ?;");
             stmt.setInt(1, idTeam);
             rs = stmt.executeQuery();
 
             while (rs.next()) {
                 BUC buc = new BUC();
-                buc.setId(rs.getInt("BUC_ID"));
+                buc.setId(rs.getInt("buc_id"));
                 buc.setName(rs.getString("bucName"));
 
                 bucList.add(buc);

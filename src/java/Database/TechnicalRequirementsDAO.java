@@ -23,7 +23,7 @@ public class TechnicalRequirementsDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO TECHNICAL_REQUIREMENTS (name,description,comments,business_requirements_id,status_id) values (?,?,?,?,?)");
+            stmt = conn.prepareStatement("INSERT INTO technical_requirements (name,description,comments,business_requirements_id,status_id) values (?,?,?,?,?)");
             stmt.setString(1, technicalRequirements.getName());
             stmt.setString(2, technicalRequirements.getDescription());
             stmt.setString(3, technicalRequirements.getComments());
@@ -42,7 +42,7 @@ public class TechnicalRequirementsDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("DELETE FROM TECHNICAL_REQUIREMENTS WHERE ID=?");
+            stmt = conn.prepareStatement("DELETE FROM technical_requirements WHERE ID=?");
             stmt.setInt(1, technicalRequirements.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
@@ -57,7 +57,7 @@ public class TechnicalRequirementsDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("UPDATE TECHNICAL_REQUIREMENTS SET name=?, description=?, comments=?, business_requirements_id=?, status_id=? WHERE id=?");
+            stmt = conn.prepareStatement("UPDATE technical_requirements SET name=?, description=?, comments=?, business_requirements_id=?, status_id=? WHERE id=?");
             stmt.setString(1, technicalRequirements.getName());
             stmt.setString(2, technicalRequirements.getDescription());
             stmt.setString(3, technicalRequirements.getComments());

@@ -24,7 +24,7 @@ public class TeamHasBUCDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO TEAM_has_BUC (team_id,buc_id) values (?,?)");
+            stmt = conn.prepareStatement("INSERT INTO team_has_buc (team_id,buc_id) values (?,?)");
             stmt.setInt(1, teamHasBUC.getTeamId());
             stmt.setInt(2, teamHasBUC.getBUCId());
             stmt.executeUpdate();
@@ -40,7 +40,7 @@ public class TeamHasBUCDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("DELETE FROM TEAM_has_BUC WHERE TEAM_ID=? and BUC_IDD=?");
+            stmt = conn.prepareStatement("DELETE FROM team_has_buc WHERE TEAM_ID=? and BUC_IDD=?");
             stmt.setInt(1, teamHasBUC.getTeamId());
             stmt.setInt(2, teamHasBUC.getBUCId());
             stmt.executeUpdate();
@@ -56,7 +56,7 @@ public class TeamHasBUCDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("UPDATE TEAM_has_BUC SET team_id=?, buc_id=? WHERE TEAM_ID=? and BUC_ID=?");
+            stmt = conn.prepareStatement("UPDATE team_has_buc SET team_id=?, buc_id=? WHERE TEAM_ID=? and BUC_ID=?");
             stmt.setInt(1, teamHasBUC.getTeamId());
             stmt.setInt(2, teamHasBUC.getBUCId());
             stmt.setInt(3, teamHasBUC.getTeamId());
@@ -76,7 +76,7 @@ public class TeamHasBUCDAO {
         List<TeamHasBUC> teamHasBUCList = new ArrayList<>();
         
         try {
-            stmt = conn.prepareStatement("SELECT * FROM TEAM_has_BUC");
+            stmt = conn.prepareStatement("SELECT * FROM team_has_buc");
             rs = stmt.executeQuery();
             
             while(rs.next()){

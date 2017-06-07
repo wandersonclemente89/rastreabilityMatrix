@@ -23,7 +23,7 @@ public class TestCasesDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO TEST_CASES (name,full_path,team_Id,status_id,test_type_id) values (?,?,?,?,?)");
+            stmt = conn.prepareStatement("INSERT INTO test_cases (name,full_path,team_Id,status_id,test_type_id) values (?,?,?,?,?)");
             stmt.setString(1, testCase.getName());
             stmt.setString(2, testCase.getFullPath());
             stmt.setInt(3, testCase.getTeamId());
@@ -42,7 +42,7 @@ public class TestCasesDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("DELETE FROM TEST_CASES WHERE ID=?");
+            stmt = conn.prepareStatement("DELETE FROM test_cases WHERE ID=?");
             stmt.setInt(1, testCase.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
@@ -57,7 +57,7 @@ public class TestCasesDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("UPDATE TEST_CASES SET name=?, full_path=?, team_id=?, status_id=?, test_type_id=? WHERE id=?");
+            stmt = conn.prepareStatement("UPDATE test_cases SET name=?, full_path=?, team_id=?, status_id=?, test_type_id=? WHERE id=?");
             stmt.setString(1, testCases.getName());
             stmt.setString(2, testCases.getFullPath());
             stmt.setInt(3, testCases.getTeamId());

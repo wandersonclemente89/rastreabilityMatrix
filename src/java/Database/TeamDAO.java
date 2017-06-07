@@ -24,7 +24,7 @@ public class TeamDAO {
 
         PreparedStatement stmt = null;
         try {    
-            stmt = conn.prepareStatement("INSERT INTO TEAM (name,project) values (?,?)");
+            stmt = conn.prepareStatement("INSERT INTO team (name,project) values (?,?)");
             stmt.setString(1, team.getName());
             stmt.setString(2, team.getProject());
             stmt.executeUpdate();
@@ -40,7 +40,7 @@ public class TeamDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("DELETE FROM TEAM WHERE ID=?");
+            stmt = conn.prepareStatement("DELETE FROM team WHERE id=?");
             stmt.setInt(1, team.getId());
             stmt.executeUpdate();
         } catch (SQLException ex) {
@@ -56,7 +56,7 @@ public class TeamDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("UPDATE TEAM SET name=?, project=? WHERE id=?");
+            stmt = conn.prepareStatement("UPDATE team SET name=?, project=? WHERE id=?");
             stmt.setString(1, team.getName());
             stmt.setString(2, team.getProject());
             stmt.setInt(3, team.getId());
@@ -74,14 +74,14 @@ public class TeamDAO {
         Team team = null;
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("SELECT * FROM TEAM WHERE ID=?");
+            stmt = conn.prepareStatement("SELECT * FROM team WHERE id=?");
             stmt.setInt(1, id);
             rs = stmt.executeQuery();
             if (rs.next()){
                 team = new Team();
-                team.setId(rs.getInt("ID"));
-                team.setName(rs.getString("NAME"));
-                team.setProject(rs.getString("PROJECT"));
+                team.setId(rs.getInt("id"));
+                team.setName(rs.getString("name"));
+                team.setProject(rs.getString("project"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -103,9 +103,9 @@ public class TeamDAO {
             
             while(rs.next()){
                 Team team = new Team();
-                team.setId(rs.getInt("ID"));
-                team.setName(rs.getString("NAME"));
-                team.setProject(rs.getString("PROJECT"));
+                team.setId(rs.getInt("id"));
+                team.setName(rs.getString("name"));
+                team.setProject(rs.getString("project"));
                 
                 teamList.add(team);
             }
@@ -124,7 +124,7 @@ public class TeamDAO {
         int teamId = -1;
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("SELECT * FROM TEAM WHERE NAME=?");
+            stmt = conn.prepareStatement("SELECT * FROM team WHERE name=?");
             stmt.setString(1, teamName);
             rs = stmt.executeQuery();
             while (rs.next())
@@ -144,15 +144,15 @@ public class TeamDAO {
         List<Team> teamList = new ArrayList<>();
         
         try {
-            stmt = conn.prepareStatement("SELECT T.ID , T.NAME, T.PROJECT FROM BUC as B inner join team_has_buc as TB on B.ID = TB.BUC_ID inner join team as T on TB.TEAM_ID = T.ID where B.id = ?");
+            stmt = conn.prepareStatement("SELECT T.id , T.name, T.project FROM buc as B inner join team_has_buc as TB on B.id = TB.BUC_ID inner join team as T on TB.team_id = T.ID where B.id = ?");
             stmt.setInt(1, bucId);
             rs = stmt.executeQuery();
             
             while(rs.next()){
                 Team team = new Team();
-                team.setId(rs.getInt("ID"));
-                team.setName(rs.getString("NAME"));
-                team.setProject(rs.getString("PROJECT"));
+                team.setId(rs.getInt("id"));
+                team.setName(rs.getString("name"));
+                team.setProject(rs.getString("project"));
                 
                 teamList.add(team);
             }

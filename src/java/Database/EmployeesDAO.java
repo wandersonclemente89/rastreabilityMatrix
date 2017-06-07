@@ -23,7 +23,7 @@ public class EmployeesDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO EMPLOYEES (signum,name,role,team_Id) values (?,?,?,?)");
+            stmt = conn.prepareStatement("INSERT INTO employees (signum,name,role,team_Id) values (?,?,?,?)");
             stmt.setString(1, employee.getSignum());
             stmt.setString(2, employee.getName());
             stmt.setString(3, employee.getRole());
@@ -41,7 +41,7 @@ public class EmployeesDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("DELETE FROM EMPLOYEES WHERE SIGNUM=?");
+            stmt = conn.prepareStatement("DELETE FROM employees WHERE SIGNUM=?");
             stmt.setString(1, employee.getSignum());
             stmt.executeUpdate();
         } catch (SQLException ex) {
@@ -56,7 +56,7 @@ public class EmployeesDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("UPDATE EMPLOYEES SET name=?, role=?, team_id=? WHERE signum=?");
+            stmt = conn.prepareStatement("UPDATE employees SET name=?, role=?, team_id=? WHERE signum=?");
             stmt.setString(1, employee.getName());
             stmt.setString(2, employee.getRole());
             stmt.setInt(3, employee.getTeamId()); 
@@ -76,7 +76,7 @@ public class EmployeesDAO {
         List<Employees> employesList = new ArrayList<>();
         
         try {
-            stmt = conn.prepareStatement("SELECT * FROM EMPLOYEES");
+            stmt = conn.prepareStatement("SELECT * FROM employees");
             rs = stmt.executeQuery();
             
             while(rs.next()){
@@ -104,7 +104,7 @@ public class EmployeesDAO {
         List<Employees> employeesList = new ArrayList<>();
         
         try {
-            stmt = conn.prepareStatement("SELECT * FROM EMPLOYEES WHERE TEAM_ID = ?");
+            stmt = conn.prepareStatement("SELECT * FROM employees WHERE TEAM_ID = ?");
             stmt.setInt(1, teamId);
             rs = stmt.executeQuery();
             
@@ -130,7 +130,7 @@ public class EmployeesDAO {
         Employees employees = null;
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("SELECT * FROM EMPLOYEES WHERE SIGNUM=?");
+            stmt = conn.prepareStatement("SELECT * FROM employees WHERE SIGNUM=?");
             stmt.setString(1, signum);
             rs = stmt.executeQuery();
             if (rs.next()){
@@ -154,7 +154,7 @@ public class EmployeesDAO {
         String signum = null;
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("SELECT * FROM EMPLOYEES WHERE NAME=?");
+            stmt = conn.prepareStatement("SELECT * FROM employees WHERE NAME=?");
             stmt.setString(1, employeeName);
             rs = stmt.executeQuery();
             while (rs.next())

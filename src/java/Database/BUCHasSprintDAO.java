@@ -23,7 +23,7 @@ public class BUCHasSprintDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("INSERT INTO BUC_has_SPRINT (buc_id,sprint_id) values (?,?)");
+            stmt = conn.prepareStatement("INSERT INTO buc_has_sprint (buc_id,sprint_id) values (?,?)");
             stmt.setInt(1, bUCHasSprint.getBUCId());
             stmt.setInt(2, bUCHasSprint.getSprintId());
             stmt.executeUpdate();
@@ -39,7 +39,7 @@ public class BUCHasSprintDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("DELETE FROM BUC_has_SPRINT WHERE BUC_ID=? and SPRINT_ID=?");
+            stmt = conn.prepareStatement("DELETE FROM buc_has_sprint WHERE buc_id=? and sprint_id=?");
             stmt.setInt(1, bUCHasSprint.getBUCId());
             stmt.setInt(2, bUCHasSprint.getSprintId());
             stmt.executeUpdate();
@@ -55,7 +55,7 @@ public class BUCHasSprintDAO {
 
         PreparedStatement stmt = null;
         try {         
-            stmt = conn.prepareStatement("UPDATE BUC_has_SPRINT SET buc_id=?, sprint_id=? WHERE BUC_ID=? and SPRINT_ID=?");
+            stmt = conn.prepareStatement("UPDATE buc_has_sprint SET buc_id=?, sprint_id=? WHERE buc_id=? and sprint_id=?");
             stmt.setInt(1, bUCHasSprint.getBUCId());
             stmt.setInt(2, bUCHasSprint.getSprintId());
             stmt.setInt(3, bUCHasSprint.getBUCId());
@@ -80,8 +80,8 @@ public class BUCHasSprintDAO {
             
             while(rs.next()){
                 BUCHasSprint bUCHasSprint = new BUCHasSprint();
-                bUCHasSprint.setBUCId(rs.getInt("BUC_ID"));
-                bUCHasSprint.setSprintId(rs.getInt("SPRINT_ID"));
+                bUCHasSprint.setBUCId(rs.getInt("buc_id"));
+                bUCHasSprint.setSprintId(rs.getInt("sprint_id"));
       
                 bUCHasSprintList.add(bUCHasSprint);
             }
@@ -101,14 +101,14 @@ public class BUCHasSprintDAO {
         List<BUCHasSprint> bUCHasSprintList = new ArrayList<>();
         
         try {
-            stmt = conn.prepareStatement("SELECT * FROM buc_has_sprint WHERE SPRINT_ID = ?");
+            stmt = conn.prepareStatement("SELECT * FROM buc_has_sprint WHERE sprint_id = ?");
             stmt.setInt(1, sprintId);
             rs = stmt.executeQuery();
             
             while(rs.next()){
                 BUCHasSprint bUCHasSprint = new BUCHasSprint();
-                bUCHasSprint.setBUCId(rs.getInt("BUC_ID"));
-                bUCHasSprint.setSprintId(rs.getInt("SPRINT_ID"));
+                bUCHasSprint.setBUCId(rs.getInt("buc_id"));
+                bUCHasSprint.setSprintId(rs.getInt("sprint_id"));
       
                 bUCHasSprintList.add(bUCHasSprint);
             }
@@ -125,7 +125,7 @@ public class BUCHasSprintDAO {
         PreparedStatement stmt = null;
         
         try {
-            stmt = conn.prepareStatement("DELETE FROM buc_has_sprint WHERE SPRINT_ID = ?");
+            stmt = conn.prepareStatement("DELETE FROM buc_has_sprint WHERE sprint_id = ?");
             stmt.setInt(1, sprintId);
             stmt.executeUpdate();
         } catch (SQLException ex) {
