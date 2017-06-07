@@ -14,7 +14,25 @@ public class Employees {
     private String name;
     private String role;
     private int teamId;
+    private String employeeTeamName;
+    private String employeeProject;
 
+    public String getEmployeeProject() {
+        return employeeProject;
+    }
+
+    public void setEmployeeProject(String employeeProject) {
+        this.employeeProject = employeeProject;
+    }
+
+    public String getEmployeeTeamName() {
+        return employeeTeamName;
+    }
+
+    public void setEmployeeTeamName(String employeeTeamName) {
+        this.employeeTeamName = employeeTeamName;
+    }
+    
     public String getName() {
         return name;
     }

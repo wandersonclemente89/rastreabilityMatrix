@@ -29,7 +29,7 @@ public class MemberList extends HttpServlet {
         
        
         EmployeesDAO employeesDAO = new EmployeesDAO();
-        List<Employees> employees = employeesDAO.read();
+        List<Employees> employees = employeesDAO.readWithTeamInformation();
         
         request.setAttribute("members", employees);
         

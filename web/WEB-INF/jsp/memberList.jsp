@@ -36,6 +36,8 @@
                             <th>Signum</th>
                             <th>Name</th>
                             <th>Role</th>
+                            <th>Team</th>
+                            <th>Project</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -45,6 +47,8 @@
                                 <td>${member.signum}</td>
                                 <td>${member.name}</td>
                                 <td>${member.role}</td>
+                                <td>${member.employeeTeamName}</td>
+                                <td>${member.employeeProject}</td>
                                 <td>
                                     <a href="<c:url value="/member/update?id=${member.signum}"/>">   
                                     <button type="button" class="btn btn-default" aria-label="Left Align">

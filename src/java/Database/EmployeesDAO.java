@@ -193,4 +193,32 @@ public class EmployeesDAO {
         
         return employeesList;
     }
+    public List<Employees> readWithTeamInformation(){
+        Connection conn = ConnectionDb.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<Employees> employeesList = new ArrayList<>();
+        
+        try {
+            stmt = conn.prepareStatement("select E.signum, E.name, E.role, T.name as tname, T.project from employees as E inner join team as T on E.team_id = T.id");
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Employees employees = new Employees();
+                employees.setSignum(rs.getString("SIGNUM"));
+                employees.setName(rs.getString("NAME"));
+                employees.setRole(rs.getString("ROLE"));
+                employees.setEmployeeTeamName(rs.getString("tname"));
+                employees.setEmployeeProject(rs.getString("project"));
+      
+                employeesList.add(employees);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+            ConnectionDb.closeConnection(conn, stmt,rs);
+        }
+        
+        return employeesList;
+    }
 }
