@@ -14,7 +14,7 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-left">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Team <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -43,8 +43,15 @@
                         <li><a href="<c:url value="/member/list"/>">List</a></li>
                     </ul>
                 </li>
-
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                <a href="#" class="navbar-btn" role="button">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+                </li>
+            </ul>
+            
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
