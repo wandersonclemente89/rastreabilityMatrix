@@ -89,3 +89,28 @@ td a:hover {
 .arrow-details{
     margin-left: 10px;
 }
+
+.footer {
+  position: relative;
+
+  clear:both;
+  padding-top:15px;
+
+  background-color: #f5f5f5;
+}
+
+hr.style1{
+	height: 5px;
+	border: 0;
+	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+
+.imgInatel {
+     margin: 0;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    height:55px;
+}

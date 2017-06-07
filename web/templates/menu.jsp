@@ -46,7 +46,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                <a href="#" class="navbar-btn" role="button">
+                <a href="#"  role="button">
                     <span class="glyphicon glyphicon-cog"></span>
                 </a>
                 </li>

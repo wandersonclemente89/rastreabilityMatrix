@@ -33,7 +33,7 @@
             <div class="content-limit">
                 <div class="row">
                 <div class="col-md-12">
-                    <div id="box-percentage" class="panel panel-green">
+                    <div id="box-percentage" class="panel">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -117,6 +117,7 @@
                 </div>
             </div>
         </div>
+        <%@ include file="/templates/footer.jsp" %>
     </body>
 </html>
 <script type="text/javascript" src="<c:url value="/javascript/script.js"/>"></script>
