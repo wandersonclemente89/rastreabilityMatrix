@@ -9,8 +9,8 @@
     <div class="content-limit">
         <div class="row">
             <div class="col-md-3">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tristique imperdiet nibh 
-                ac rhoncus. Duis suscipit gravida metus, porttitor congue quam auctor ac. Donec efficitur nisl
+                Matrix Rastreability is a web system developed in order to support QAs , Developers, and Managers that allows a fully tracking of the Business Requirements
+                and its respective Test Cases and also shows an accurate coverage statistic of a requirement document.
             </div>
             <div class="col-md-3">
             </div>
