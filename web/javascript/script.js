@@ -6,7 +6,7 @@ $.urlParam = function (name) {
 
 $.ajax({
     method: "POST",
-    url: "http://localhost:8084/rastreabilityMatrixICC/report",
+    url: "/rastreabilityMatrixICC/report",
     data: {bucId: $.urlParam('bucId')}
 }).done(function (BR) {
     var percentage = calcPercentage(BR);
