@@ -8,7 +8,7 @@
 <footer class="footer">
     <div class="content-limit">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4 text-footer">
                 Matrix Rastreability is a web system developed in order to support QAs , Developers, and Managers that allows a fully tracking of the Business Requirements
                 and its respective Test Cases and also shows an accurate coverage statistic of a requirement document.
             </div>
@@ -16,7 +16,7 @@
             </div>
             <div class="col-md-3">
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <img class="imgInatel" src="<c:url value="/images/inatel-logo-branca.png"/>" />
             </div>
         </div>

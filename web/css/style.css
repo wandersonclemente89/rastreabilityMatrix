@@ -92,19 +92,77 @@ td a:hover {
 }
 
 .footer {
-  position: relative;
-  clear:both;
-  padding-top:15px;
-  color: white;
-  background-color: #337ab7;
+    position: relative;
+    clear:both;
+    padding-top:15px;
+    color: white;
+    background-color: #337ab7;
 }
 
 hr.style1{
-	height: 5px;
-	border: 0;
-	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+    height: 5px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #8c8b8b inset;
 }
 
 .imgInatel {
     width: 90px;
+}
+
+.tool-box{
+    min-height: 227px;
+    color: white;
+    text-align: center;
+    border: 2px solid white;
+}
+
+.tool-box:hover{
+}
+
+.tool-box img{
+    width: 130px;
+}
+
+.rastr-box{
+    background: #16B183;
+}
+
+.eda-box{
+    background: #FE6D4B;
+}
+
+.gerrit-box{
+    background: #FFB936;
+}
+
+.sonar-box{
+    background: #14ABFC;
+}
+
+.lint-box{
+    background: #FFFFFF;
+    border: 2px solid #E7E7E7;
+    color: #757575;
+}
+
+.align-center{
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 120px;
+}
+
+.title-home{
+    color: #717171;
+}
+
+.text-footer{
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 992px){
+    .tool-box{
+        width: 20%;
+    }
+
 }

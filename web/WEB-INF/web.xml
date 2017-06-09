@@ -57,8 +57,8 @@
         <servlet-class>Servlet.BUCUpdate</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Dashboard</servlet-name>
-        <servlet-class>Servlet.Home</servlet-class>
+        <servlet-name>RastreabilityMatrix</servlet-name>
+        <servlet-class>Servlet.RastreabilityMatrix</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Team</servlet-name>
@@ -87,6 +87,10 @@
     <servlet>
         <servlet-name>Test</servlet-name>
         <servlet-class>Servlet.Test</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Home</servlet-name>
+        <servlet-class>Servlet.Home</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MemberAdd</servlet-name>
@@ -145,8 +149,8 @@
         <url-pattern>/buc/update</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Dashboard</servlet-name>
-        <url-pattern>/home</url-pattern>
+        <servlet-name>RastreabilityMatrix</servlet-name>
+        <url-pattern>/rastreabilityMatrix</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Team</servlet-name>
@@ -175,6 +179,10 @@
     <servlet-mapping>
         <servlet-name>Test</servlet-name>
         <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Home</servlet-name>
+        <url-pattern>/home</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
