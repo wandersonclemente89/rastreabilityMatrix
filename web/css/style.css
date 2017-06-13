@@ -99,6 +99,10 @@ td a:hover {
     background-color: #337ab7;
 }
 
+table td {
+    word-break: break-all;
+}
+
 hr.style1{
     height: 5px;
     border: 0;
