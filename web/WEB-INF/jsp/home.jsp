@@ -19,7 +19,7 @@
                 
                 <div class="row ">
                     <div class="align-center">
-                        <h3 class="title-home">Quality Tool</h3>
+                        <h3 class="title-home">Quality Tools</h3>
                         <hr>
                         <a href="<c:url value="/rastreabilityMatrix"/>">
                             <div class="col-md-2 tool-box rastr-box">
@@ -28,20 +28,12 @@
                             </div>
                         </a>
                         <div class="col-md-2 tool-box eda-box">
-                            <img class="" src="<c:url value="/images/rastreability.png"/>" />
+                            <img class="" src="<c:url value="/images/eda-icon.png"/>" />
                             <h4>EDA</h4>
                         </div>
                         <div class="col-md-2 tool-box gerrit-box">
-                            <img class="" src="<c:url value="/images/rastreability.png"/>" />
+                            <img class="" src="<c:url value="/images/gerrit-icon.png"/>" />
                             <h4>Gerrit Metrics</h4>
-                        </div>
-                        <div class="col-md-2 tool-box sonar-box">
-                            <img class="" src="<c:url value="/images/rastreability.png"/>" />
-                            <h4>Sonar</h4>
-                        </div>
-                        <div class="col-md-2 tool-box lint-box">
-                            <img class="" src="<c:url value="/images/rastreability-dark.png"/>" />
-                            <h4>Git Lint</h4>
                         </div>
                     </div>
                 </div>

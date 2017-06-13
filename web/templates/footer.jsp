@@ -9,8 +9,8 @@
     <div class="content-limit">
         <div class="row">
             <div class="col-md-4 text-footer">
-                Matrix Rastreability is a web system developed in order to support QAs , Developers, and Managers that allows a fully tracking of the Business Requirements
-                and its respective Test Cases and also shows an accurate coverage statistic of a requirement document.
+                Quality tools is a web system to integrate techniques as Rastreability Matrix, EDA and Gerrit Metrics. 
+                It's a system developed to help centralize our quality systems and help QA's, PM's and any other stakeholders on Quality Assurance role.
             </div>
             <div class="col-md-3">
             </div>

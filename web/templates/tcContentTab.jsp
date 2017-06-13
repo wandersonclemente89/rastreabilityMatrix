@@ -16,7 +16,7 @@
         <tr>
             <td>${testCase.id}</td>
             <td>${testCase.name}</td>
-            <td>${testCase.fullPath}</td>
+            <td class="break-line">${testCase.fullPath}</td>
             <td>${testCase.tRName}</td>
             <td>${testCase.teamName}</td>
             <td>${testCase.testTypeName}</td>
